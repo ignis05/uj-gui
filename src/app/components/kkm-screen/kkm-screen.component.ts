@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+
+import { TranslateService } from '@ngx-translate/core'
 
 @Component({
-  selector: 'app-kkm-screen',
-  templateUrl: './kkm-screen.component.html',
-  styleUrls: ['./kkm-screen.component.css']
+	selector: 'app-kkm-screen',
+	templateUrl: './kkm-screen.component.html',
+	styleUrls: ['./kkm-screen.component.css'],
 })
 export class KkmScreenComponent implements OnInit {
+	constructor(public translate: TranslateService) {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+	ngOnInit(): void {}
 }

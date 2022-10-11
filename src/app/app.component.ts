@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router'
+import { NavigationEnd, Router } from '@angular/router'
+import { TranslateService } from '@ngx-translate/core'
 
 @Component({
 	selector: 'app-root',
@@ -9,12 +10,23 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router'
 export class AppComponent {
 	activeRoute: string = '/main'
 
-	constructor(private router: Router) {
+	constructor(private router: Router, public translate: TranslateService) {
 		// update active route prop
 		this.router.events.subscribe((event) => {
 			if (event instanceof NavigationEnd) {
 				this.activeRoute = event.url
 			}
 		})
+
+		translate.addLangs(['en', 'pl'])
+		translate.use('en')
+	}
+
+	changeTranslation() {
+		const swapOrder = {
+			en: 'pl',
+			pl: 'en',
+		}
+		this.translate.use(swapOrder[this.translate.currentLang as keyof typeof swapOrder])
 	}
 }

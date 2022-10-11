@@ -1,2 +1,3 @@
-<div *ngIf="activeRoute!=='/main'"><button routerLink="/main">Back to Main Screen</button></div>
+<div *ngIf="activeRoute !== '/main'"><button routerLink="/main">Back to Main Screen</button></div>
+<button (click)="changeTranslation()">{{ 'CurrentLanguage' | translate }}</button>
 <router-outlet></router-outlet>
