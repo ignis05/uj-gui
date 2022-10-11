@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { NavigationEnd, Router } from '@angular/router'
 import { TranslateService } from '@ngx-translate/core'
+import { TranslationSettings } from './modules/translation.module'
 
 @Component({
 	selector: 'app-root',
@@ -14,19 +15,21 @@ export class AppComponent {
 		// update active route prop
 		this.router.events.subscribe((event) => {
 			if (event instanceof NavigationEnd) {
+				console.log(`Navigated to "${event.url}"`)
 				this.activeRoute = event.url
 			}
 		})
 
-		translate.addLangs(['en', 'pl'])
-		translate.use('en')
+		translate.addLangs(TranslationSettings.availableLanguages)
+		translate.use(TranslationSettings.availableLanguages[0])
+	}
+
+	get nextLanguage(): string {
+		let i = this.translate.langs.indexOf(this.translate.currentLang)
+		return this.translate.langs[(i + 1) % this.translate.langs.length]
 	}
 
 	changeTranslation() {
-		const swapOrder = {
-			en: 'pl',
-			pl: 'en',
-		}
-		this.translate.use(swapOrder[this.translate.currentLang as keyof typeof swapOrder])
+		this.translate.use(this.nextLanguage)
 	}
 }

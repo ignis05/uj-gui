@@ -4,9 +4,12 @@ import { TranslateLoader, TranslateModule, TranslateModuleConfig } from '@ngx-tr
 import { TranslateHttpLoader } from '@ngx-translate/http-loader'
 import { HttpClient } from '@angular/common/http'
 
+export class TranslationSettings {
+	static availableLanguages: string[] = ['gb', 'pl']
+}
+
 const config: TranslateModuleConfig = {
-  defaultLanguage:'en',
-  
+	defaultLanguage: TranslationSettings.availableLanguages[0],
 	loader: {
 		provide: TranslateLoader,
 		useFactory: httpTranslateLoader,
@@ -22,5 +25,5 @@ const config: TranslateModuleConfig = {
 export class TranslationModule {}
 
 export function httpTranslateLoader(http: HttpClient) {
-	return new TranslateHttpLoader(http,'assets/i18n/')
+	return new TranslateHttpLoader(http, 'assets/i18n/')
 }
