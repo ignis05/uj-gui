@@ -2,6 +2,7 @@ import { Component } from '@angular/core'
 import { NavigationEnd, Router } from '@angular/router'
 import { TranslateService } from '@ngx-translate/core'
 import { TranslationSettings } from './modules/translation.module'
+import { canNavigateBack } from 'src/app/interfaces/navigate-back'
 
 @Component({
 	selector: 'app-root',
@@ -10,6 +11,7 @@ import { TranslationSettings } from './modules/translation.module'
 })
 export class AppComponent {
 	activeRoute: string = '/main'
+	goBackFunc: Function | null = null
 
 	constructor(private router: Router, public translate: TranslateService) {
 		// update active route prop
@@ -30,5 +32,15 @@ export class AppComponent {
 
 	changeTranslation() {
 		this.translate.use(this.nextLanguage)
+	}
+
+	// binds element's goBack func to button in navbar
+	onActivate(elementRef: any) {
+		if (canNavigateBack(elementRef)) this.goBackFunc = elementRef.goBack
+		else this.goBackFunc = null
+	}
+
+	goBack() {
+		this.goBackFunc?.()
 	}
 }

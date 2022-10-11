@@ -1,4 +1,14 @@
-<div>
-	<button routerLink="/tickets">{{ 'Tickets' | translate }}</button>
-	<button routerLink="/kkm">{{ 'KKM' | translate }}</button>
+<div class="wrapper">
+	<button mat-raised-button class="navButton" routerLink="/tickets">
+		<span>
+			{{ 'Tickets' | translate }}
+		</span>
+		<mat-icon fill="0" fontIcon="confirmation_number"></mat-icon>
+	</button>
+	<button mat-raised-button class="navButton" routerLink="/kkm">
+		<span>
+			{{ 'KKM' | translate }}
+		</span>
+		<mat-icon fill="0" fontIcon="credit_card"></mat-icon>
+	</button>
 </div>

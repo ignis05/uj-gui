@@ -1,5 +1,12 @@
-<div *ngIf="activeRoute !== '/'">
-	<button routerLink="/"><mat-icon fontIcon="home"></mat-icon></button>
-</div>
-<button (click)="changeTranslation()"><mat-icon [fontSet]="'fi-' + nextLanguage"></mat-icon></button>
-<router-outlet></router-outlet>
+<nav class="navBar mat-elevation-z6">
+	<button mat-icon-button color="black" [style.opacity]="goBackFunc != null ? '100' : '0'" (click)="goBack()">
+		<mat-icon fontIcon="arrow_back_ios"></mat-icon>
+	</button>
+	<button mat-icon-button color="black" [style.opacity]="activeRoute !== '/' ? '100' : '0'" routerLink="/">
+		<mat-icon fontIcon="home"></mat-icon>
+	</button>
+	<button mat-icon-button color="black" (click)="changeTranslation()">
+		<mat-icon class="flag" [fontSet]="'fi-' + nextLanguage"></mat-icon>
+	</button>
+</nav>
+<router-outlet class="router" (activate)="onActivate($event)"></router-outlet>
