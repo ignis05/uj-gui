@@ -1,5 +1,5 @@
-<div *ngIf="activeRoute !== '/main'">
-	<button routerLink="/main"><mat-icon fontIcon="home"></mat-icon></button>
+<div *ngIf="activeRoute !== '/'">
+	<button routerLink="/"><mat-icon fontIcon="home"></mat-icon></button>
 </div>
 <button (click)="changeTranslation()"><mat-icon [fontSet]="'fi-' + nextLanguage"></mat-icon></button>
 <router-outlet></router-outlet>

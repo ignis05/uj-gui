@@ -5,9 +5,8 @@ import { MainScreenComponent } from '../components/main-screen/main-screen.compo
 import { TicketScreenComponent } from '../components/ticket-screen/ticket-screen.component'
 
 const routes: Routes = [
-	{ path: '', redirectTo: '/main', pathMatch: 'full' },
-	{ path: 'index.html', redirectTo: '/main', pathMatch: 'full' },
-	{ path: 'main', component: MainScreenComponent },
+	{ path: 'index.html', redirectTo: '/', pathMatch: 'full' },
+	{ path: '', component: MainScreenComponent, pathMatch: 'full' },
 	{ path: 'tickets', component: TicketScreenComponent },
 	{ path: 'kkm', component: KkmScreenComponent },
 ]
