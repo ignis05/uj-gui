@@ -1,27 +1,12 @@
-# UjGui
+# Projekt zespołowy
+Najważniejszą częścią zajęć jest wykonanie projektu zespołowego. W ramach tego projektu należy zaprojektować, zaimplementować i ocenić interfejs użytkownika (tylko interfejs, a nie całą aplikację korzystającą z bazy danych lub połączeń sieciowych — te funkcje aplikacji należy zasymulować). Projektowanie interfejsów użytkownika jest procesem iteracyjnym, tak więc interfejs zostanie wykonany trzykrotnie, za każdym razem z większą precyzją — jako projekt, prototyp i końcowa wersja. Aby mieć czas na wykonanie trzech iteracji należy zacząć jak najwcześniej i pracować systematycznie przez cały semestr.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
+Zespoły projektowe powinny składać się z 3-4 osób. Temat wybrany do realizacji nie jest narzucony z góry, ale musi spełniać pewne warunki:
+- Musi mieć znaczący interfejs użytkownika. Program do odtwarzania plików wideo nie jest tu wystarczający, ale już interfejs pozwalający przeglądać takie pliki, organizować je w kolekcje itp. ma szanse na akceptację.
+- Interfejs musi być interaktywny. Statyczna strona WWW, nawet bardzo rozbudowana, nie będzie przyjęta, ale na przykład sklep internetowy z koszykiem i wyszukiwaniem produktów już tak.
+- Preferowane są projekty oryginalne. Można oczywiście zrobić interfejs do aplikacji typu album fotograficzny, ale jest ich już bardzo wiele.
+- Projekt może być związany z innym aktualnie wykonywanym. Można również zbudować znaczący interfejs użytkownika do programu wykonywanego na zaliczenie innego przedmiotu.
 
-## Development server
+Większość projektów będzie zapewne albo w postaci aplikacji desktopowych albo internetowych, ale dopuszczalne są także inne interfejsy (telefon). Proszę wybrać takie narzędzia, które są już dobrze poznane, przynajmniej przez część zespołu. Tworzenie dużego projektu nie jest najlepszym momentem na naukę nowych języków i / lub bibliotek. Można wybrać dowolne narzędzie dostępne na uczelni lub możliwe do legalnego zainstalowania.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Krytycznie ważna uwaga: aplikacja musi być uruchamialna w pracowni, w której odbywają się zajęcia. Opracowany na etapie 5 komputerowy prototyp UI będzie testowany przez osoby z pozostałych zespołów, nie można więc przygotować tego prototypu w formie, na przykład, aplikacji na iPhone’a. Jej uruchamianie nie może też być bardziej skomplikowane niż „wpisz do przeglądarki zapisany na tablicy URL, ściągnij i rozpakuj archiwum z aplikacją, kliknij dwukrotnie w plik sklep.exe”.
