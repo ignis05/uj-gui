@@ -1,1 +1,21 @@
-<p>KKM Screen</p>
+<div class="wrapper" *ngIf="activeSubComponent === 'KkmSelect'">
+	<button mat-raised-button class="navButton" (click)="KkmSelectHandler('activeTicketsList')">
+		<span>
+			{{ 'Check active tickets' | translate }}
+		</span>
+		<mat-icon fill="0" fontIcon="checklist"></mat-icon>
+	</button>
+	<button mat-raised-button class="navButton" (click)="KkmSelectHandler('2')">
+		<span>
+			{{ 'Purchase ticket' | translate }}
+		</span>
+		<mat-icon fill="0" fontIcon="shopping_cart"></mat-icon>
+	</button>
+	<button mat-raised-button class="navButton" (click)="KkmSelectHandler('3')">
+		<span>
+			{{ 'Activate ticket' | translate }}
+		</span>
+		<mat-icon fill="0" fontIcon="cloud_download"></mat-icon>
+	</button>
+</div>
+<app-active-tickets-list *ngIf="activeSubComponent === 'activeTicketsList'"></app-active-tickets-list>

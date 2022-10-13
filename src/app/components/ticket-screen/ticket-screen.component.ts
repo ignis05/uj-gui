@@ -10,7 +10,9 @@ import { NavigateBack } from 'src/app/interfaces/navigate-back'
 	styleUrls: ['./ticket-screen.component.css'],
 })
 export class TicketScreenComponent implements OnInit, NavigateBack {
-	constructor(public translate: TranslateService, private router: Router) {}
+	constructor(public translate: TranslateService, private router: Router) {
+		this.goBack = this.goBack.bind(this)
+	}
 
 	goBack(): void {
 		this.router.navigateByUrl('/')

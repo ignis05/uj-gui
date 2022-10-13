@@ -9,10 +9,20 @@ import { NavigateBack } from 'src/app/interfaces/navigate-back'
 	styleUrls: ['./kkm-screen.component.css'],
 })
 export class KkmScreenComponent implements OnInit, NavigateBack {
-	constructor(public translate: TranslateService, private router: Router) {}
+	activeSubComponent: string = 'KkmSelect'
+
+	constructor(public translate: TranslateService, private router: Router) {
+		this.goBack = this.goBack.bind(this)
+	}
 
 	goBack(): void {
-		this.router.navigateByUrl('/')
+		if (this.activeSubComponent === 'KkmSelect') this.router.navigateByUrl('/')
+		else if (this.activeSubComponent === 'activeTicketsList') this.activeSubComponent = 'KkmSelect'
+	}
+
+	KkmSelectHandler(navigateTo: string) {
+		console.log(navigateTo)
+		this.activeSubComponent = navigateTo
 	}
 
 	ngOnInit(): void {}

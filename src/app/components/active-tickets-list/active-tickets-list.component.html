@@ -1,0 +1,8 @@
+<h3>{{ 'Active tickets' | translate }}:</h3>
+<div class="ticketListWrapper">
+	<div *ngFor="let ticket of ticketsList" class="ticket" [style.backgroundColor]="ticket.isActive ? 'green' : 'red'">
+		<div>{{ 'Active Since:' | translate }} {{ ticket.activeSince }}</div>
+		<div>{{ 'Active Until:' | translate }} {{ ticket.activeUntil }}</div>
+		<div>{{ 'Lines:' | translate }} {{ ticket.busLine == 'all' ? 'All lines' : ticket.busLine }}</div>
+	</div>
+</div>
