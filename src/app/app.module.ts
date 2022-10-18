@@ -14,10 +14,11 @@ import { TranslationModule } from './modules/translation.module'
 import { MainScreenComponent } from './components/main-screen/main-screen.component'
 import { KkmScreenComponent } from './components/kkm-screen/kkm-screen.component'
 import { TicketScreenComponent } from './components/ticket-screen/ticket-screen.component';
-import { ActiveTicketsListComponent } from './components/active-tickets-list/active-tickets-list.component'
+import { ActiveTicketsListComponent } from './components/active-tickets-list/active-tickets-list.component';
+import { TicketActivationComponent } from './components/ticket-activation/ticket-activation.component'
 
 @NgModule({
-	declarations: [AppComponent, MainScreenComponent, KkmScreenComponent, TicketScreenComponent, ActiveTicketsListComponent],
+	declarations: [AppComponent, MainScreenComponent, KkmScreenComponent, TicketScreenComponent, ActiveTicketsListComponent, TicketActivationComponent],
 	imports: [
 		BrowserModule,
 		HttpClientModule,

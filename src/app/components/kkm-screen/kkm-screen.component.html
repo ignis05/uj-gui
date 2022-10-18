@@ -11,7 +11,7 @@
 		</span>
 		<mat-icon fill="0" fontIcon="shopping_cart"></mat-icon>
 	</button>
-	<button mat-raised-button class="navButton" (click)="KkmSelectHandler('3')">
+	<button mat-raised-button class="navButton" (click)="KkmSelectHandler('ticketActivation')">
 		<span>
 			{{ 'Activate ticket' | translate }}
 		</span>
@@ -19,3 +19,4 @@
 	</button>
 </div>
 <app-active-tickets-list *ngIf="activeSubComponent === 'activeTicketsList'"></app-active-tickets-list>
+<app-ticket-activation *ngIf="activeSubComponent === 'ticketActivation'" [isTicketAvailable]="true"></app-ticket-activation>
