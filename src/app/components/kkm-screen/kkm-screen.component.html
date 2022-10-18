@@ -1,27 +1,27 @@
 <div *ngIf="activeSubComponent === 'insertKKM'" class="wrapper align-items-center">
-	<h1>{{ 'Insert KKM into the reader' | translate }}</h1>
+	<h1>{{ '#kkmScreen-insert' | translate }}</h1>
 </div>
 <div *ngIf="activeSubComponent === 'kkmRemoved'" class="wrapper align-items-center" (click)="goBack()">
 	<div class="d-flex flex-column align-items-center">
-		<h1>{{ 'KKM was removed. Click anywhere to return.' | translate }}</h1>
+		<h1>{{ '#kkmScreen-removed' | translate }}</h1>
 	</div>
 </div>
 <div class="wrapper" *ngIf="activeSubComponent === 'KkmSelect'">
 	<button mat-raised-button class="navButton" (click)="KkmSelectHandler('activeTicketsList')">
 		<span>
-			{{ 'Check active tickets' | translate }}
+			{{ '#kkmScreen-checkActive' | translate }}
 		</span>
 		<mat-icon fill="0" fontIcon="checklist"></mat-icon>
 	</button>
 	<button mat-raised-button class="navButton" (click)="KkmSelectHandler('2')">
 		<span>
-			{{ 'Purchase ticket' | translate }}
+			{{ '#kkmScreen-purchase' | translate }}
 		</span>
 		<mat-icon fill="0" fontIcon="shopping_cart"></mat-icon>
 	</button>
 	<button mat-raised-button class="navButton" (click)="KkmSelectHandler('ticketActivation')">
 		<span>
-			{{ 'Activate ticket' | translate }}
+			{{ '#kkmScreen-activate' | translate }}
 		</span>
 		<mat-icon fill="0" fontIcon="cloud_download"></mat-icon>
 	</button>

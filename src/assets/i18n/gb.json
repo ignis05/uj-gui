@@ -1,3 +1,15 @@
 {
+	"#mainScreen-tickets": "Tickets",
+	"#mainScreen-kkm": "KKM",
+	"#kkmScreen-insert": "Insert KKM into the reader",
+	"#kkmScreen-removed": "KKM was removed. Click anywhere to return.",
+	"#kkmScreen-checkActive": "Check active tickets",
+	"#kkmScreen-purchase": "Purchase ticket",
+	"#kkmScreen-activate": "Activate ticket",
+	"#activeTicketList-activeTickets": "Active tickets",
+	"#activeTicketList-activeSince": "Active Since:",
+	"#activeTicketList-activeUntil": "Active Until:",
+	"#activeTicketList-lines": "Lines:",
+	"#activeTicketList-allLines": "All lines",
 	"LanguageName": "English"
 }
