@@ -1,11 +1,11 @@
 .navBar {
-	width: 100%;
 	display: flex;
 	flex-flow: row;
 	justify-content: space-between;
 	align-items: center;
 	background-color: var(--bs-primary) !important;
 	padding: 5px 10px;
+	overflow: hidden;
 }
 
 .navBar button {

@@ -15,10 +15,11 @@ import { MainScreenComponent } from './components/main-screen/main-screen.compon
 import { KkmScreenComponent } from './components/kkm-screen/kkm-screen.component'
 import { TicketScreenComponent } from './components/ticket-screen/ticket-screen.component';
 import { ActiveTicketsListComponent } from './components/active-tickets-list/active-tickets-list.component';
-import { TicketActivationComponent } from './components/ticket-activation/ticket-activation.component'
+import { TicketActivationComponent } from './components/ticket-activation/ticket-activation.component';
+import { KeybindExplainerComponent } from './components/keybind-explainer/keybind-explainer.component'
 
 @NgModule({
-	declarations: [AppComponent, MainScreenComponent, KkmScreenComponent, TicketScreenComponent, ActiveTicketsListComponent, TicketActivationComponent],
+	declarations: [AppComponent, MainScreenComponent, KkmScreenComponent, TicketScreenComponent, ActiveTicketsListComponent, TicketActivationComponent, KeybindExplainerComponent],
 	imports: [
 		BrowserModule,
 		HttpClientModule,

@@ -17,7 +17,7 @@ export class KkmScreenComponent implements OnInit, NavigateBack {
 
 	goBack(): void {
 		if (this.activeSubComponent === 'KkmSelect') this.router.navigateByUrl('/')
-		else if (this.activeSubComponent === 'activeTicketsList') this.activeSubComponent = 'KkmSelect'
+		else if (['activeTicketsList', 'ticketActivation'].includes(this.activeSubComponent)) this.activeSubComponent = 'KkmSelect'
 	}
 
 	KkmSelectHandler(navigateTo: string) {

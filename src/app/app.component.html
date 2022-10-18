@@ -15,4 +15,5 @@
 		<mat-icon class="flag" [fontSet]="'fi-' + nextLanguage"></mat-icon>
 	</button>
 </nav>
-<router-outlet class="router" (activate)="onActivate($event)"></router-outlet>
+<app-keybind-explainer *ngIf="kebindsVisible"></app-keybind-explainer>
+<router-outlet [style.visibility]="kebindsVisible ? 'hidden' : 'visible'" class="router" (activate)="onActivate($event)"></router-outlet>

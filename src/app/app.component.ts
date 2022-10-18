@@ -12,6 +12,7 @@ import { canNavigateBack } from 'src/app/interfaces/navigate-back'
 export class AppComponent {
 	activeRoute: string = '/main'
 	goBackFunc: Function | null = null
+	kebindsVisible: boolean = false
 
 	constructor(private router: Router, public translate: TranslateService) {
 		// update active route prop
@@ -23,6 +24,12 @@ export class AppComponent {
 
 		translate.addLangs(TranslationSettings.availableLanguages)
 		translate.use(TranslationSettings.availableLanguages[0])
+
+		document.addEventListener('keyup', (e) => {
+			if (e.code === 'Backquote') {
+				this.kebindsVisible = !this.kebindsVisible
+			}
+		})
 	}
 
 	get nextLanguage(): string {
