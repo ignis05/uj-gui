@@ -1,3 +1,11 @@
+<div *ngIf="activeSubComponent === 'insertKKM'" class="wrapper align-items-center">
+	<h1>{{ 'Insert KKM into the reader' | translate }}</h1>
+</div>
+<div *ngIf="activeSubComponent === 'kkmRemoved'" class="wrapper align-items-center" (click)="goBack()">
+	<div class="d-flex flex-column align-items-center">
+		<h1>{{ 'KKM was removed. Click anywhere to return.' | translate }}</h1>
+	</div>
+</div>
 <div class="wrapper" *ngIf="activeSubComponent === 'KkmSelect'">
 	<button mat-raised-button class="navButton" (click)="KkmSelectHandler('activeTicketsList')">
 		<span>
