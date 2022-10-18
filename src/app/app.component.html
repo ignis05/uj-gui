@@ -1,8 +1,14 @@
 <nav class="navBar mat-elevation-z6">
-	<button mat-icon-button color="black" [style.opacity]="goBackFunc != null ? '100' : '0'" (click)="goBack()">
+	<button
+		mat-icon-button
+		color="black"
+		[disabled]="goBackFunc === null"
+		[style.opacity]="goBackFunc != null ? '100' : '0'"
+		(click)="goBack()"
+	>
 		<mat-icon fontIcon="arrow_back_ios"></mat-icon>
 	</button>
-	<button mat-icon-button color="black" [style.opacity]="activeRoute !== '/' ? '100' : '0'" routerLink="/">
+	<button mat-icon-button color="black" [disabled]="activeRoute === '/'" [style.opacity]="activeRoute !== '/' ? '100' : '0'" routerLink="/">
 		<mat-icon fontIcon="home"></mat-icon>
 	</button>
 	<button mat-icon-button color="black" (click)="changeTranslation()">
