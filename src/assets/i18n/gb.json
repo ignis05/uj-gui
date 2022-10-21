@@ -2,7 +2,7 @@
 	"#mainScreen-tickets": "Tickets",
 	"#mainScreen-kkm": "KKM",
 	"#kkmScreen-insert": "Insert KKM into the reader",
-	"#kkmScreen-removed": "KKM was removed. Click anywhere to return.",
+	"#kkmScreen-removed": "KKM was removed. Press anywhere to return.",
 	"#kkmScreen-checkActive": "Check active tickets",
 	"#kkmScreen-purchase": "Purchase ticket",
 	"#kkmScreen-activate": "Activate ticket",
@@ -11,5 +11,9 @@
 	"#activeTicketList-activeUntil": "Active Until:",
 	"#activeTicketList-lines": "Lines:",
 	"#activeTicketList-allLines": "All lines",
+	"#ticketActivation-noTicket": "No online tickets available for activation found. Press anywhere to return.",
+	"#ticketActivation-ticketReady": "Your online ticket is ready:",
+	"#ticketActivation-success1": "Your ticket was successfuly activated.",
+	"#ticketActivation-success2": "Remove your card and press anywhere to quit.",
 	"LanguageName": "English"
 }

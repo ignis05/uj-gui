@@ -10,6 +10,7 @@ import { NavigateBack } from 'src/app/interfaces/navigate-back'
 })
 export class KkmScreenComponent implements OnInit, NavigateBack {
 	activeSubComponent: string = 'insertKKM'
+	isOnlineTicketReady: boolean = true
 
 	constructor(public translate: TranslateService, private router: Router) {
 		this.goBack = this.goBack.bind(this)
@@ -29,9 +30,12 @@ export class KkmScreenComponent implements OnInit, NavigateBack {
 	}
 
 	kkmMockupHandler(e: KeyboardEvent) {
-		if (e.code !== 'Space') return
-		if (this.activeSubComponent === 'insertKKM') this.activeSubComponent = 'KkmSelect'
-		else this.activeSubComponent = 'kkmRemoved'
+		if (e.code === 'Space') {
+			if (this.activeSubComponent === 'insertKKM') this.activeSubComponent = 'KkmSelect'
+			else this.activeSubComponent = 'kkmRemoved'
+		} else if (e.code === 'KeyO') {
+			this.isOnlineTicketReady = !this.isOnlineTicketReady
+		}
 	}
 
 	ngOnInit(): void {}

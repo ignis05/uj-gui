@@ -27,4 +27,8 @@
 	</button>
 </div>
 <app-active-tickets-list *ngIf="activeSubComponent === 'activeTicketsList'"></app-active-tickets-list>
-<app-ticket-activation *ngIf="activeSubComponent === 'ticketActivation'" [isTicketAvailable]="true"></app-ticket-activation>
+<app-ticket-activation
+	*ngIf="activeSubComponent === 'ticketActivation'"
+	[isTicketAvailable]="isOnlineTicketReady"
+	[goBackFunc]="goBack"
+></app-ticket-activation>
