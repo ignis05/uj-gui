@@ -7,7 +7,7 @@ import { canNavigateBack } from 'src/app/interfaces/navigate-back'
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.css'],
+	styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
 	activeRoute: string = '/main'

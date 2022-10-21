@@ -8,7 +8,7 @@ import { PaperTicket } from 'src/app/models/paper-ticket.model'
 @Component({
 	selector: 'app-ticket-screen',
 	templateUrl: './ticket-screen.component.html',
-	styleUrls: ['./ticket-screen.component.css'],
+	styleUrls: ['./ticket-screen.component.scss'],
 })
 export class TicketScreenComponent implements OnInit, NavigateBack {
 	cart: PaperTicket[] = [

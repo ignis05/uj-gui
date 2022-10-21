@@ -6,7 +6,7 @@ import { NavigateBack } from 'src/app/interfaces/navigate-back'
 @Component({
 	selector: 'app-kkm-screen',
 	templateUrl: './kkm-screen.component.html',
-	styleUrls: ['./kkm-screen.component.css'],
+	styleUrls: ['./kkm-screen.component.scss'],
 })
 export class KkmScreenComponent implements OnInit, NavigateBack {
 	activeSubComponent: string = 'insertKKM'

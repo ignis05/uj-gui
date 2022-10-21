@@ -5,7 +5,7 @@ import { KkmTicket } from 'src/app/models/kkm-ticket.model'
 @Component({
 	selector: 'app-ticket-activation',
 	templateUrl: './ticket-activation.component.html',
-	styleUrls: ['./ticket-activation.component.css'],
+	styleUrls: ['./ticket-activation.component.scss'],
 })
 export class TicketActivationComponent implements OnInit {
 	@Input() isTicketAvailable: boolean = true
