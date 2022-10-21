@@ -15,5 +15,9 @@
 	"#ticketActivation-ticketReady": "Your online ticket is ready:",
 	"#ticketActivation-success1": "Your ticket was successfuly activated.",
 	"#ticketActivation-success2": "Remove your card and press anywhere to quit.",
+	"#paymentHandler-cash": "Cash",
+	"#paymentHandler-card": "Credit Card",
+	"#paymentHandler-blik": "Blik",
+	"#paymentHandler-cardInstructions": "Proceed with the payment according to instructions displayed on the terminal.",
 	"LanguageName": "English"
 }

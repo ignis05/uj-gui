@@ -1,8 +1,12 @@
-<div *ngIf="cart.length > 0" class="shoppingCart">
+<div *ngIf="visibleComponent == 'main' && cart.length > 0" class="shoppingCart">
 	<div>Total: {{ (totalPrice | number: '1.2-2') + ' PLN' }}</div>
 	<div class="cartContents"></div>
 	<div class="buttons">
 		<button mat-flat-button>Clear cart</button>
-		<button mat-flat-button color="primary">Purchase</button>
+		<button mat-flat-button color="primary" (click)="confirmPurchase()">Purchase</button>
 	</div>
 </div>
+<div *ngIf="visibleComponent == 'main'" class="ticketSelector">
+	<!-- togglebutton for reduced / zone selector cycling 1->2->3 // buttons for each ticket time -->
+</div>
+<app-payment-handler [toPay]="totalPrice" [goBackEvent]="childGoBackEEmitter" *ngIf="visibleComponent == 'payment'"></app-payment-handler>

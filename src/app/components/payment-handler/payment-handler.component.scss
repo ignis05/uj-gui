@@ -1,0 +1,30 @@
+.methodSelector {
+	height: calc(100% - 50px);
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+}
+.navButton {
+	height: 100%;
+	flex: 1 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 3em;
+}
+.navButton:not(:last-child) {
+	margin-right: 10px;
+}
+
+.navButton mat-icon {
+	transform: translate(20px, 0px) scale(3);
+}
+
+.infoText {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding-top: 50px;
+}

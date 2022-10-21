@@ -1,1 +1,25 @@
-<p>payment-handler works!</p>
+<div *ngIf="!chosenPaymentMethod" class="methodSelector">
+	<button mat-raised-button class="navButton" (click)="paymentMethodSelectHandler('cash')">
+		<span>
+			{{ '#paymentHandler-cash' | translate }}
+		</span>
+		<mat-icon fill="0" fontIcon="payments"></mat-icon>
+	</button>
+	<button mat-raised-button class="navButton" (click)="paymentMethodSelectHandler('card')">
+		<span>
+			{{ '#paymentHandler-card' | translate }}
+		</span>
+		<mat-icon fill="0" fontIcon="credit_card"></mat-icon>
+	</button>
+	<button mat-raised-button class="navButton" (click)="paymentMethodSelectHandler('blik')">
+		<span>
+			{{ '#paymentHandler-blik' | translate }}
+		</span>
+		<mat-icon fill="0" fontIcon="password"></mat-icon>
+	</button>
+</div>
+<div *ngIf="chosenPaymentMethod == 'cash'">cash</div>
+<div *ngIf="chosenPaymentMethod == 'card'" class="infoText">
+	<h1>{{ '#paymentHandler-cardInstructions' | translate }}</h1>
+</div>
+<div *ngIf="chosenPaymentMethod == 'blik'">blik</div>

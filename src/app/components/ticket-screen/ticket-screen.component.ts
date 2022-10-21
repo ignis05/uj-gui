@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, EventEmitter, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 
 import { TranslateService } from '@ngx-translate/core'
@@ -11,6 +11,8 @@ import { PaperTicket } from 'src/app/models/paper-ticket.model'
 	styleUrls: ['./ticket-screen.component.scss'],
 })
 export class TicketScreenComponent implements OnInit, NavigateBack {
+	visibleComponent: 'main' | 'payment' = 'main'
+	childGoBackEEmitter = new EventEmitter<string>()
 	cart: PaperTicket[] = [
 		{ reduced: true, validFor: '20 #minutes', zone: '1', price: 2.0 },
 		{ reduced: false, validFor: '20 #minutes', zone: '1', price: 5.0 },
@@ -18,10 +20,16 @@ export class TicketScreenComponent implements OnInit, NavigateBack {
 
 	constructor(public translate: TranslateService, private router: Router) {
 		this.goBack = this.goBack.bind(this)
+
+		this.childGoBackEEmitter.subscribe((e) => {
+			if (e === 'toParent') this.visibleComponent = 'main'
+		})
 	}
 
 	goBack(): void {
-		this.router.navigateByUrl('/')
+		if (this.visibleComponent == 'main') this.router.navigateByUrl('/')
+		else if (this.visibleComponent == 'payment') this.childGoBackEEmitter.emit('toChild')
+		else this.visibleComponent = 'main'
 	}
 
 	get totalPrice() {
@@ -29,7 +37,7 @@ export class TicketScreenComponent implements OnInit, NavigateBack {
 	}
 
 	confirmPurchase() {
-		let price = this.totalPrice
+		this.visibleComponent = 'payment'
 	}
 
 	ngOnInit(): void {}
