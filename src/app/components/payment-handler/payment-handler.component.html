@@ -19,7 +19,11 @@
 	</button>
 </div>
 <div *ngIf="chosenPaymentMethod == 'cash'">cash</div>
-<div *ngIf="chosenPaymentMethod == 'card'" class="infoText">
-	<h1>{{ '#paymentHandler-cardInstructions' | translate }}</h1>
+<div *ngIf="chosenPaymentMethod == 'card'" class="infoText" (click)="cardPaymentCompleteHandler()">
+	<h1 *ngIf="!cardPaymentResult">{{ '#paymentHandler-cardInstructions' | translate }}</h1>
+	<h1 *ngIf="cardPaymentResult == 'accepted'">{{ '#paymentHandler-cardAccepted1' | translate }}</h1>
+	<h1 *ngIf="cardPaymentResult == 'accepted'">{{ '#paymentHandler-cardAccepted2' | translate }}</h1>
+	<h1 *ngIf="cardPaymentResult == 'declined'">{{ '#paymentHandler-cardDeclined1' | translate }}</h1>
+	<h1 *ngIf="cardPaymentResult == 'declined'">{{ '#paymentHandler-cardDeclined2' | translate }}</h1>
 </div>
 <div *ngIf="chosenPaymentMethod == 'blik'">blik</div>

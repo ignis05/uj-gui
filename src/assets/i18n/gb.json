@@ -19,5 +19,9 @@
 	"#paymentHandler-card": "Credit Card",
 	"#paymentHandler-blik": "Blik",
 	"#paymentHandler-cardInstructions": "Proceed with the payment according to instructions displayed on the terminal.",
+	"#paymentHandler-cardAccepted1": "Payment accepted - printing in progress.",
+	"#paymentHandler-cardAccepted2": "Press anywhere to exit.",
+	"#paymentHandler-cardDeclined1": "Payment declined - see the terminal for details.",
+	"#paymentHandler-cardDeclined2": "Press anywhere to try again.",
 	"LanguageName": "English"
 }
