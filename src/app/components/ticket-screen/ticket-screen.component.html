@@ -1,1 +1,8 @@
-<p>Ticket screen</p>
+<div *ngIf="cart.length > 0" class="shoppingCart">
+	<div>Total: {{ (totalPrice | number: '1.2-2') + ' PLN' }}</div>
+	<div class="cartContents"></div>
+	<div class="buttons">
+		<button mat-flat-button>Clear cart</button>
+		<button mat-flat-button color="primary">Purchase</button>
+	</div>
+</div>
