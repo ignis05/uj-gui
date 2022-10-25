@@ -5,4 +5,10 @@ h3 {
 
 .ticket {
 	margin: 5px 10px;
+	width: 200px;
+}
+
+.ticketListWrapper {
+	display: flex;
+	flex-flow: row wrap;
 }
