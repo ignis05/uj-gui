@@ -23,5 +23,7 @@
 	"#paymentHandler-cardAccepted2": "Press anywhere to exit.",
 	"#paymentHandler-cardDeclined1": "Payment declined - see the terminal for details.",
 	"#paymentHandler-cardDeclined2": "Press anywhere to try again.",
+	"#paymentHandler-enterBlikCode": "Enter blik code:",
+	"#paymentHandler-confirmBlikPayment": "Now confirm the payment on your phone.",
 	"LanguageName": "English"
 }

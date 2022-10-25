@@ -1,0 +1,11 @@
+.keypadWrapper {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+button {
+	height: 150px;
+	width: 150px;
+}

@@ -13,14 +13,26 @@ import { AppRoutingModule } from './modules/app-routing.module'
 import { TranslationModule } from './modules/translation.module'
 import { MainScreenComponent } from './components/main-screen/main-screen.component'
 import { KkmScreenComponent } from './components/kkm-screen/kkm-screen.component'
-import { TicketScreenComponent } from './components/ticket-screen/ticket-screen.component';
-import { ActiveTicketsListComponent } from './components/active-tickets-list/active-tickets-list.component';
-import { TicketActivationComponent } from './components/ticket-activation/ticket-activation.component';
-import { KeybindExplainerComponent } from './components/keybind-explainer/keybind-explainer.component';
+import { TicketScreenComponent } from './components/ticket-screen/ticket-screen.component'
+import { ActiveTicketsListComponent } from './components/active-tickets-list/active-tickets-list.component'
+import { TicketActivationComponent } from './components/ticket-activation/ticket-activation.component'
+import { KeybindExplainerComponent } from './components/keybind-explainer/keybind-explainer.component'
 import { PaymentHandlerComponent } from './components/payment-handler/payment-handler.component'
+import { ReactiveFormsModule } from '@angular/forms';
+import { KeypadComponent } from './components/keypad/keypad.component'
 
 @NgModule({
-	declarations: [AppComponent, MainScreenComponent, KkmScreenComponent, TicketScreenComponent, ActiveTicketsListComponent, TicketActivationComponent, KeybindExplainerComponent, PaymentHandlerComponent],
+	declarations: [
+		AppComponent,
+		MainScreenComponent,
+		KkmScreenComponent,
+		TicketScreenComponent,
+		ActiveTicketsListComponent,
+		TicketActivationComponent,
+		KeybindExplainerComponent,
+		PaymentHandlerComponent,
+  KeypadComponent,
+	],
 	imports: [
 		BrowserModule,
 		HttpClientModule,
@@ -30,6 +42,7 @@ import { PaymentHandlerComponent } from './components/payment-handler/payment-ha
 		BrowserAnimationsModule,
 		MatIconModule,
 		MatButtonModule,
+		ReactiveFormsModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit } from '@angular/core'
+import { FormControl } from '@angular/forms'
 import { Router } from '@angular/router'
 
 @Component({
@@ -12,6 +13,8 @@ export class PaymentHandlerComponent implements OnInit, OnDestroy {
 	chosenPaymentMethod: 'cash' | 'card' | 'blik' | undefined
 	eventSubscription: any
 	cardPaymentResult: 'accepted' | 'declined' | undefined
+	blikInput = new FormControl('')
+	blikPaymentStatus: 'code' | 'waiting' | 'confirmation' = 'code'
 
 	constructor(private router: Router) {
 		this.mockupInteractionHandler = this.mockupInteractionHandler.bind(this)
@@ -52,5 +55,14 @@ export class PaymentHandlerComponent implements OnInit, OnDestroy {
 		else this.goBackFunc()
 
 		this.cardPaymentResult = undefined
+	}
+
+	blikKeypadHandler(value: string) {
+		if (value != 'OK') this.blikInput.setValue(value)
+		else this.blikPaymentStatus = 'waiting'
+	}
+
+	blikProcessNavigation(dest: typeof this.blikPaymentStatus) {
+		this.blikPaymentStatus = dest
 	}
 }

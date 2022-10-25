@@ -1,4 +1,4 @@
-<div *ngIf="!chosenPaymentMethod" class="methodSelector">
+<div *ngIf="!chosenPaymentMethod" class="methodSelector fullHeight">
 	<button mat-raised-button class="navButton" (click)="paymentMethodSelectHandler('cash')">
 		<span>
 			{{ '#paymentHandler-cash' | translate }}
@@ -19,11 +19,23 @@
 	</button>
 </div>
 <div *ngIf="chosenPaymentMethod == 'cash'">cash</div>
-<div *ngIf="chosenPaymentMethod == 'card'" class="infoText" (click)="cardPaymentCompleteHandler()">
+<div *ngIf="chosenPaymentMethod == 'card'" class="infoText fullHeight" (click)="cardPaymentCompleteHandler()">
 	<h1 *ngIf="!cardPaymentResult">{{ '#paymentHandler-cardInstructions' | translate }}</h1>
 	<h1 *ngIf="cardPaymentResult == 'accepted'">{{ '#paymentHandler-cardAccepted1' | translate }}</h1>
 	<h1 *ngIf="cardPaymentResult == 'accepted'">{{ '#paymentHandler-cardAccepted2' | translate }}</h1>
 	<h1 *ngIf="cardPaymentResult == 'declined'">{{ '#paymentHandler-cardDeclined1' | translate }}</h1>
 	<h1 *ngIf="cardPaymentResult == 'declined'">{{ '#paymentHandler-cardDeclined2' | translate }}</h1>
 </div>
-<div *ngIf="chosenPaymentMethod == 'blik'">blik</div>
+<div *ngIf="chosenPaymentMethod == 'blik'" class="fullHeight d-flex justify-content-center align-items-center">
+	<div *ngIf="blikPaymentStatus == 'code'" class="d-flex flex-column keypadWrapper">
+		<label for="blikCode">{{ '#paymentHandler-enterBlikCode' | translate }}</label>
+		<input [readonly]="true" name="blikCode" [formControl]="blikInput" />
+		<app-keypad class="keyPad mt-3" (valueOutput)="blikKeypadHandler($event)"></app-keypad>
+	</div>
+	<div *ngIf="blikPaymentStatus == 'waiting'" class="d-flex flex-column">
+		<h1>
+			{{ '#paymentHandler-confirmBlikPayment' | translate }}
+		</h1>
+		<button (click)="blikProcessNavigation('code')">{{ '#paymentHandler-cancel' | translate }}</button>
+	</div>
+</div>

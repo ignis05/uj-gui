@@ -1,10 +1,14 @@
-.methodSelector {
+.fullHeight {
 	height: calc(100% - 50px);
+}
+
+.methodSelector {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: flex-start;
 }
+
 .navButton {
 	height: 100%;
 	flex: 1 1;
@@ -28,3 +32,5 @@
 	justify-content: center;
 	padding-top: 50px;
 }
+
+
