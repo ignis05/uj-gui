@@ -1,34 +1,40 @@
 <div class="wrapper fullHeight" *ngIf="visibleComponent == 'main'">
 	<div class="shoppingCart sideColumn">
-		<div class="text-center">Total: {{ (totalPrice | number: '1.2-2') + ' PLN' }}</div>
+		<div class="text-center mt-2">{{ '#ticketScreen-cart-total' | translate }}: {{ (totalPrice | number: '1.2-2') + ' PLN' }}</div>
 		<div class="buttons">
-			<button mat-flat-button>Clear cart</button>
-			<button mat-flat-button color="primary" (click)="confirmPurchase()">Purchase</button>
+			<button mat-flat-button (click)="clearCart()">{{ '#ticketScreen-cart-clearCart' | translate }}</button>
+			<button mat-flat-button color="primary" (click)="confirmPurchase()">{{ '#ticketScreen-cart-purchase' | translate }}</button>
 		</div>
-		<div class="cartContents">
+		<div class="cartContents mt-3">
 			<div class="ticket" *ngFor="let ticket of cart">
 				<div class="info">
-					<div class="type">{{ ticket.reduced }}</div>
-					<div class="zone">{{ ticket.zone }}</div>
 					<div class="for">{{ ticket.validFor }}</div>
-					<div class="price">{{ ticket.price }}</div>
+					<div class="type">
+						{{ '#ticketScreen-options-type' | translate }}:
+						{{ (ticket.reduced ? '#ticketScreen-reduced' : '#ticketScreen-normal') | translate }}
+					</div>
+					<div class="zone">{{ '#ticketScreen-options-zone' | translate }}: {{ ticket.zone }}</div>
+					<div class="price">{{ '#ticketScreen-cart-price' | translate }}: {{ ticket.price }}</div>
 				</div>
-				<button mat-icon-button><mat-icon color="warn">delete</mat-icon></button>
+				<button mat-icon-button (click)="removeFromCart(ticket)"><mat-icon color="warn">delete</mat-icon></button>
 			</div>
 		</div>
 	</div>
 	<div class="ticketSelect">
-		<button *ngFor="let ticket of possibleTickets">{{ ticket }}</button>
+		<button *ngFor="let ticket of possibleTimes" (click)="addToCard(ticket)">{{ ticket }}</button>
 	</div>
 	<div class="ticketOptions sideColumn">
-		<button mat-raised-button class="mb-5">Ticket information <mat-icon>info</mat-icon></button>
-		<button mat-raised-button>Type: {{ ticketOptions.reduced }}</button>
-		<button mat-raised-button>Zone: {{ ticketOptions.zone }}</button>
+		<button mat-raised-button class="mb-5">{{ '#ticketScreen-options-info' | translate }} <mat-icon>info</mat-icon></button>
+		<button mat-raised-button (click)="typeToggle()">
+			{{ '#ticketScreen-options-type' | translate }}:
+			{{ (ticketOptions.reduced ? '#ticketScreen-reduced' : '#ticketScreen-normal') | translate }}
+		</button>
+		<button mat-raised-button (click)="zoneToggle()">{{ '#ticketScreen-options-zone' | translate }}: {{ ticketOptions.zone }}</button>
 		<div class="amountSelect">
-			<div class="mb-1">Amount: {{ ticketOptions.amount }}</div>
+			<div class="mb-1">{{ '#ticketScreen-options-amount' | translate }}: {{ ticketOptions.amount }}</div>
 			<div class="amountSelectButtons">
-				<button mat-raised-button>-</button>
-				<button mat-raised-button>+</button>
+				<button mat-raised-button (click)="setAmount(-1)">-</button>
+				<button mat-raised-button (click)="setAmount(1)">+</button>
 			</div>
 		</div>
 	</div>
