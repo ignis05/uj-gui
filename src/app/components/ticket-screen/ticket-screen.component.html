@@ -1,12 +1,37 @@
-<div *ngIf="visibleComponent == 'main' && cart.length > 0" class="shoppingCart">
-	<div>Total: {{ (totalPrice | number: '1.2-2') + ' PLN' }}</div>
-	<div class="cartContents"></div>
-	<div class="buttons">
-		<button mat-flat-button>Clear cart</button>
-		<button mat-flat-button color="primary" (click)="confirmPurchase()">Purchase</button>
+<div class="wrapper fullHeight" *ngIf="visibleComponent == 'main'">
+	<div class="shoppingCart sideColumn">
+		<div class="text-center">Total: {{ (totalPrice | number: '1.2-2') + ' PLN' }}</div>
+		<div class="buttons">
+			<button mat-flat-button>Clear cart</button>
+			<button mat-flat-button color="primary" (click)="confirmPurchase()">Purchase</button>
+		</div>
+		<div class="cartContents">
+			<div class="ticket" *ngFor="let ticket of cart">
+				<div class="info">
+					<div class="type">{{ ticket.reduced }}</div>
+					<div class="zone">{{ ticket.zone }}</div>
+					<div class="for">{{ ticket.validFor }}</div>
+					<div class="price">{{ ticket.price }}</div>
+				</div>
+				<button mat-icon-button><mat-icon color="warn">delete</mat-icon></button>
+			</div>
+		</div>
+	</div>
+	<div class="ticketSelect">
+		<button *ngFor="let ticket of possibleTickets">{{ ticket }}</button>
+	</div>
+	<div class="ticketOptions sideColumn">
+		<button mat-raised-button class="mb-5">Ticket information <mat-icon>info</mat-icon></button>
+		<button mat-raised-button>Type: {{ ticketOptions.reduced }}</button>
+		<button mat-raised-button>Zone: {{ ticketOptions.zone }}</button>
+		<div class="amountSelect">
+			<div class="mb-1">Amount: {{ ticketOptions.amount }}</div>
+			<div class="amountSelectButtons">
+				<button mat-raised-button>-</button>
+				<button mat-raised-button>+</button>
+			</div>
+		</div>
 	</div>
 </div>
-<div *ngIf="visibleComponent == 'main'" class="ticketSelector">
-	<!-- togglebutton for reduced / zone selector cycling 1->2->3 // buttons for each ticket time -->
-</div>
+
 <app-payment-handler [toPay]="totalPrice" [goBackEvent]="childGoBackEEmitter" *ngIf="visibleComponent == 'payment'"></app-payment-handler>

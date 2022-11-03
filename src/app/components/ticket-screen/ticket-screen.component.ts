@@ -3,7 +3,7 @@ import { Router } from '@angular/router'
 
 import { TranslateService } from '@ngx-translate/core'
 import { NavigateBack } from 'src/app/interfaces/navigate-back'
-import { PaperTicket } from 'src/app/models/paper-ticket.model'
+import { PaperTicket, possibleTickets } from 'src/app/models/paper-ticket.model'
 
 @Component({
 	selector: 'app-ticket-screen',
@@ -17,6 +17,12 @@ export class TicketScreenComponent implements OnInit, NavigateBack {
 		{ reduced: true, validFor: '20 #minutes', zone: '1', price: 2.0 },
 		{ reduced: false, validFor: '20 #minutes', zone: '1', price: 5.0 },
 	]
+	ticketOptions = {
+		reduced: false,
+		zone: '1',
+		amount: 1,
+	}
+	possibleTickets = possibleTickets
 
 	constructor(public translate: TranslateService, private router: Router) {
 		this.goBack = this.goBack.bind(this)
