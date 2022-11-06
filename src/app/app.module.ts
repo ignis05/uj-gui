@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpClientModule } from '@angular/common/http'
 
+import { DragScrollModule } from 'ngx-drag-scroll';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 import { MatIconModule } from '@angular/material/icon'
@@ -45,6 +47,7 @@ import { TicketButtonComponent } from './components/ticket-button/ticket-button.
 		MatIconModule,
 		MatButtonModule,
 		ReactiveFormsModule,
+		DragScrollModule
 	],
 	providers: [],
 	bootstrap: [AppComponent],

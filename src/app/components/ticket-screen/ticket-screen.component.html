@@ -8,7 +8,7 @@
 			<button mat-raised-button (click)="clearCart()">{{ '#ticketScreen-cart-clearCart' | translate }}</button>
 			<button mat-raised-button color="primary" (click)="confirmPurchase()">{{ '#ticketScreen-cart-purchase' | translate }}</button>
 		</div>
-		<div class="cartContents mt-3">
+		<drag-scroll [scrollbar-hidden]="true" [drag-scroll-x-disabled]="true" class="cartContents mt-3">
 			<div class="ticket" *ngFor="let ticket of cart; trackBy: trackTicket">
 				<div class="info">
 					<div class="type">
@@ -21,7 +21,7 @@
 				</div>
 				<button mat-raised-button (click)="removeFromCart(ticket)"><mat-icon color="warn">delete</mat-icon></button>
 			</div>
-		</div>
+		</drag-scroll>
 	</div>
 	<div class="ticketSelect container fullHeight">
 		<div class="row">

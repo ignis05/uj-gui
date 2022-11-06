@@ -27,6 +27,7 @@
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.2.0",
     "flag-icons": "^6.6.6",
+    "ngx-drag-scroll": "^14.0.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

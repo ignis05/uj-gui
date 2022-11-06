@@ -116,5 +116,5 @@ app-ticket-button {
 
 .shoppingCart .cartContents {
 	height: calc(100% - 140px);
-	overflow-y: hidden;
+	user-select: none;
 }
