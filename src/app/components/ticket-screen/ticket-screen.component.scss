@@ -6,11 +6,6 @@
 	justify-content: center;
 }
 
-.ticketSelect {
-	flex-grow: 1;
-	height: 100%;
-}
-
 .sideColumn {
 	width: 250px;
 	height: 100%;
@@ -24,14 +19,22 @@
 	justify-content: flex-start;
 }
 
+$btnMargin: 5px;
 .ticketOptions > button {
-	width: 100%;
-	margin-bottom: 10px;
+	margin: $btnMargin;
+	width: calc(100% - $btnMargin - $btnMargin);
+	height: 100px;
+	font-size: 1.4em;
+	border: 1px solid black;
 }
 
 .ticketOptions .amountSelect {
-	width: 100%;
+	margin: $btnMargin;
+	width: calc(100% - $btnMargin - $btnMargin);
+	padding: 5px;
 	text-align: center;
+	font-size: 1.4em;
+	border: 1px solid black;
 }
 .ticketOptions .amountSelectButtons {
 	width: 100%;
@@ -42,13 +45,38 @@
 }
 .ticketOptions .amountSelectButtons > button {
 	flex-grow: 1;
+	height: 80px;
+	font-size: 1.5em;
+	border: 1px solid black;
+	border-radius: 0;
 }
 
 .ticketSelect {
+	flex-grow: 1;
+	padding-top: 100px;
+}
+
+app-ticket-button {
 	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-evenly;
 	align-items: center;
+	justify-content: center;
+	margin-top: 40px;
+}
+
+.shoppingCart {
+	padding: 5px;
+	padding-top: 0px;
+}
+
+.shoppingCart .cartTotal {
+	font-size: 1.4em;
+	font-weight: bold;
+	margin-bottom: 5px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 5px;
 }
 
 .shoppingCart .buttons {
@@ -58,10 +86,35 @@
 	justify-content: space-evenly;
 }
 
+.shoppingCart .buttons > button {
+	height: 80px;
+	width: 50%;
+	border: 1px solid black;
+}
+
+.shoppingCart .buttons > button:not(:first-child) {
+	margin-left: 5px;
+}
+
 .shoppingCart .ticket {
 	border: 1px solid black;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
+	padding-left: 5px;
+	margin-bottom: 5px;
+	height: 100px;
+}
+
+.shoppingCart .ticket button {
+	height: 100%;
+	flex-grow: 1;
+	margin-left: 10px;
+	border-left: 1px solid black;
+}
+
+.shoppingCart .cartContents {
+	height: calc(100% - 140px);
+	overflow-y: hidden;
 }

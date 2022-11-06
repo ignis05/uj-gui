@@ -1,0 +1,12 @@
+<button class="ticketBtn" (click)="emitClick()">
+	<div class="ticektHeader" [style.background-color]="actualTicket.reduced ? '#4CAF50' : '#2196F3'">{{ actualTicket.price | number: '1.2-2' }} PLN</div>
+	<div class="ticektBody" >
+		<div class="type" >
+			{{ (actualTicket.reduced ? '#ticketScreen-reduced' : '#ticketScreen-normal') | translate }}
+		</div>
+		<div class="time">
+			{{ actualTicket.time | translate }}
+		</div>
+		<div class="zone">{{ '#ticketScreen-options-zone' | translate }}: {{ actualTicket.zone }}</div>
+	</div>
+</button>

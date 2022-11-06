@@ -1,27 +1,49 @@
 <div class="wrapper fullHeight" *ngIf="visibleComponent == 'main'">
 	<div class="shoppingCart sideColumn">
-		<div class="text-center mt-2">{{ '#ticketScreen-cart-total' | translate }}: {{ (totalPrice | number: '1.2-2') + ' PLN' }}</div>
+		<div class="text-center mt-2 cartTotal">
+			<div>{{ '#ticketScreen-cart-total' | translate }}:</div>
+			<div>{{ (totalPrice | number: '1.2-2') + ' PLN' }}</div>
+		</div>
 		<div class="buttons">
-			<button mat-flat-button (click)="clearCart()">{{ '#ticketScreen-cart-clearCart' | translate }}</button>
-			<button mat-flat-button color="primary" (click)="confirmPurchase()">{{ '#ticketScreen-cart-purchase' | translate }}</button>
+			<button mat-raised-button (click)="clearCart()">{{ '#ticketScreen-cart-clearCart' | translate }}</button>
+			<button mat-raised-button color="primary" (click)="confirmPurchase()">{{ '#ticketScreen-cart-purchase' | translate }}</button>
 		</div>
 		<div class="cartContents mt-3">
-			<div class="ticket" *ngFor="let ticket of cart">
+			<div class="ticket" *ngFor="let ticket of cart; trackBy: trackTicket">
 				<div class="info">
-					<div class="for">{{ ticket.validFor | translate }}</div>
 					<div class="type">
 						{{ '#ticketScreen-options-type' | translate }}:
 						{{ (ticket.reduced ? '#ticketScreen-reduced' : '#ticketScreen-normal') | translate }}
 					</div>
+					<div class="for">{{ ticket.time | translate }}</div>
 					<div class="zone">{{ '#ticketScreen-options-zone' | translate }}: {{ ticket.zone }}</div>
-					<div class="price">{{ '#ticketScreen-cart-price' | translate }}: {{ ticket.price }}</div>
+					<div class="price">{{ '#ticketScreen-cart-price' | translate }}: {{ ticket.price | number: '1.2-2' }} PLN</div>
 				</div>
-				<button mat-icon-button (click)="removeFromCart(ticket)"><mat-icon color="warn">delete</mat-icon></button>
+				<button mat-raised-button (click)="removeFromCart(ticket)"><mat-icon color="warn">delete</mat-icon></button>
 			</div>
 		</div>
 	</div>
-	<div class="ticketSelect">
-		<button *ngFor="let ticket of possibleTimes" (click)="addToCard(ticket)">{{ ticket | translate }}</button>
+	<div class="ticketSelect container fullHeight">
+		<div class="row">
+			<app-ticket-button
+				class="col"
+				*ngFor="let ticketTime of possibleTimes.slice(0, possibleTimes.length / 2)"
+				[reduced]="ticketOptions.reduced"
+				[zone]="ticketOptions.zone"
+				[time]="ticketTime"
+				(addToCart)="addToCard($event)"
+			></app-ticket-button>
+		</div>
+		<div class="row">
+			<app-ticket-button
+				class="col"
+				*ngFor="let ticketTime of possibleTimes.slice(possibleTimes.length / 2)"
+				[reduced]="ticketOptions.reduced"
+				[zone]="ticketOptions.zone"
+				[time]="ticketTime"
+				(addToCart)="addToCard($event)"
+			></app-ticket-button>
+		</div>
 	</div>
 	<div class="ticketOptions sideColumn">
 		<button mat-raised-button class="mb-5">{{ '#ticketScreen-options-info' | translate }} <mat-icon>info</mat-icon></button>
@@ -30,11 +52,11 @@
 			{{ (ticketOptions.reduced ? '#ticketScreen-reduced' : '#ticketScreen-normal') | translate }}
 		</button>
 		<button mat-raised-button (click)="zoneToggle()">{{ '#ticketScreen-options-zone' | translate }}: {{ ticketOptions.zone }}</button>
-		<div class="amountSelect">
+		<div class="amountSelect rounded">
 			<div class="mb-1">{{ '#ticketScreen-options-amount' | translate }}: {{ ticketOptions.amount }}</div>
 			<div class="amountSelectButtons">
-				<button mat-raised-button (click)="setAmount(-1)">-</button>
-				<button mat-raised-button (click)="setAmount(1)">+</button>
+				<button mat-flat-button (click)="setAmount(-1)">-</button>
+				<button mat-flat-button (click)="setAmount(1)">+</button>
 			</div>
 		</div>
 	</div>

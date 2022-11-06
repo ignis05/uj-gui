@@ -5,6 +5,10 @@ import { TranslateService } from '@ngx-translate/core'
 import { NavigateBack } from 'src/app/interfaces/navigate-back'
 import { PaperTicket, possibleTickets, possibleTimes } from 'src/app/models/paper-ticket.model'
 
+interface TicketInCart extends PaperTicket {
+	id: string
+}
+
 @Component({
 	selector: 'app-ticket-screen',
 	templateUrl: './ticket-screen.component.html',
@@ -13,10 +17,7 @@ import { PaperTicket, possibleTickets, possibleTimes } from 'src/app/models/pape
 export class TicketScreenComponent implements OnInit, NavigateBack {
 	visibleComponent: 'main' | 'payment' = 'main'
 	childGoBackEEmitter = new EventEmitter<string>()
-	cart: PaperTicket[] = [
-		{ reduced: true, validFor: '#valid-20min', zone: 'I', price: 2.0 },
-		{ reduced: false, validFor: '#valid-20min', zone: 'I', price: 5.0 },
-	]
+	cart: TicketInCart[] = []
 	ticketOptions = {
 		reduced: false,
 		zone: 'I',
@@ -58,7 +59,7 @@ export class TicketScreenComponent implements OnInit, NavigateBack {
 	}
 
 	zoneToggle() {
-		const zones = ['I', 'I + II', 'I + II + III']
+		const zones = ['I', 'I + II']
 		let i = zones.indexOf(this.ticketOptions.zone)
 		if (i == -1) return console.error('invalid ticket zone')
 		this.ticketOptions.zone = zones[(i + 1) % zones.length]
@@ -68,16 +69,9 @@ export class TicketScreenComponent implements OnInit, NavigateBack {
 		this.ticketOptions.amount = Math.min(Math.max(1, this.ticketOptions.amount + change), 20)
 	}
 
-	addToCard(validFor: PaperTicket["validFor"]) {
-		let ticket: PaperTicket = {
-			price: 10,
-			reduced: this.ticketOptions.reduced,
-			zone: this.ticketOptions.zone,
-			validFor,
-		}
-
+	addToCard(ticket: PaperTicket) {
 		for (let i = 0; i < this.ticketOptions.amount; i++) {
-			this.cart.push(ticket)
+			this.cart.push({ ...ticket, id: (Date.now() + Math.random()).toString(32) })
 		}
 	}
 
@@ -85,5 +79,9 @@ export class TicketScreenComponent implements OnInit, NavigateBack {
 		let i = this.cart.findIndex((t) => t == ticket)
 		if (i == -1) return console.error('ticket to delete not found in cart')
 		this.cart.splice(i, 1)
+	}
+
+	trackTicket(i: number, ticket: TicketInCart) {
+		return ticket.id
 	}
 }

@@ -19,7 +19,8 @@ import { TicketActivationComponent } from './components/ticket-activation/ticket
 import { KeybindExplainerComponent } from './components/keybind-explainer/keybind-explainer.component'
 import { PaymentHandlerComponent } from './components/payment-handler/payment-handler.component'
 import { ReactiveFormsModule } from '@angular/forms';
-import { KeypadComponent } from './components/keypad/keypad.component'
+import { KeypadComponent } from './components/keypad/keypad.component';
+import { TicketButtonComponent } from './components/ticket-button/ticket-button.component'
 
 @NgModule({
 	declarations: [
@@ -32,6 +33,7 @@ import { KeypadComponent } from './components/keypad/keypad.component'
 		KeybindExplainerComponent,
 		PaymentHandlerComponent,
   KeypadComponent,
+  TicketButtonComponent,
 	],
 	imports: [
 		BrowserModule,
