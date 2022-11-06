@@ -1,4 +1,10 @@
 {
+	"#valid-20min": "20-minute",
+	"#valid-40min": "40-minute",
+	"#valid-1h": "1-hour",
+	"#valid-2h": "2-hour",
+	"#valid-1d": "1-day",
+	"#valid-7d": "7-day",
 	"#mainScreen-tickets": "Tickets",
 	"#mainScreen-kkm": "KKM",
 	"#kkmScreen-insert": "Insert KKM into the reader",

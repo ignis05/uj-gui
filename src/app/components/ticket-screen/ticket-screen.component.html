@@ -8,7 +8,7 @@
 		<div class="cartContents mt-3">
 			<div class="ticket" *ngFor="let ticket of cart">
 				<div class="info">
-					<div class="for">{{ ticket.validFor }}</div>
+					<div class="for">{{ ticket.validFor | translate }}</div>
 					<div class="type">
 						{{ '#ticketScreen-options-type' | translate }}:
 						{{ (ticket.reduced ? '#ticketScreen-reduced' : '#ticketScreen-normal') | translate }}
@@ -21,7 +21,7 @@
 		</div>
 	</div>
 	<div class="ticketSelect">
-		<button *ngFor="let ticket of possibleTimes" (click)="addToCard(ticket)">{{ ticket }}</button>
+		<button *ngFor="let ticket of possibleTimes" (click)="addToCard(ticket)">{{ ticket | translate }}</button>
 	</div>
 	<div class="ticketOptions sideColumn">
 		<button mat-raised-button class="mb-5">{{ '#ticketScreen-options-info' | translate }} <mat-icon>info</mat-icon></button>

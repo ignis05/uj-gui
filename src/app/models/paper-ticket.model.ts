@@ -1,6 +1,6 @@
 export interface PaperTicket {
 	reduced: boolean
-	validFor: string
+	validFor: '#valid-20min' | '#valid-40min' | '#valid-1h' | '#valid-2h' | '#valid-1d' | '#valid-7d'
 	zone: string
 	price: number
 }
@@ -8,37 +8,37 @@ export interface PaperTicket {
 export const possibleTickets: PaperTicket[] = [
 	{
 		reduced: false,
-		validFor: '20 min',
+		validFor: '#valid-20min',
 		zone: 'I',
 		price: 2.0,
 	},
 	{
 		reduced: false,
-		validFor: '40 min',
+		validFor: '#valid-40min',
 		zone: 'I',
 		price: 3.0,
 	},
 	{
 		reduced: false,
-		validFor: '1 h',
+		validFor: '#valid-1h',
 		zone: 'I',
 		price: 4.0,
 	},
 	{
 		reduced: false,
-		validFor: '2 h',
+		validFor: '#valid-2h',
 		zone: 'I',
 		price: 5.0,
 	},
 	{
 		reduced: false,
-		validFor: '1 d',
+		validFor: '#valid-1d',
 		zone: 'I',
 		price: 6.0,
 	},
 	{
 		reduced: false,
-		validFor: '7 d',
+		validFor: '#valid-7d',
 		zone: 'I',
 		price: 13.0,
 	},

@@ -14,8 +14,8 @@ export class TicketScreenComponent implements OnInit, NavigateBack {
 	visibleComponent: 'main' | 'payment' = 'main'
 	childGoBackEEmitter = new EventEmitter<string>()
 	cart: PaperTicket[] = [
-		{ reduced: true, validFor: '20 min', zone: 'I', price: 2.0 },
-		{ reduced: false, validFor: '20 min', zone: 'I', price: 5.0 },
+		{ reduced: true, validFor: '#valid-20min', zone: 'I', price: 2.0 },
+		{ reduced: false, validFor: '#valid-20min', zone: 'I', price: 5.0 },
 	]
 	ticketOptions = {
 		reduced: false,
@@ -68,7 +68,7 @@ export class TicketScreenComponent implements OnInit, NavigateBack {
 		this.ticketOptions.amount = Math.min(Math.max(1, this.ticketOptions.amount + change), 20)
 	}
 
-	addToCard(validFor: string) {
+	addToCard(validFor: PaperTicket["validFor"]) {
 		let ticket: PaperTicket = {
 			price: 10,
 			reduced: this.ticketOptions.reduced,
