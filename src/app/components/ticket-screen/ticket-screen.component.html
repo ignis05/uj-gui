@@ -10,16 +10,23 @@
 		</div>
 		<drag-scroll [scrollbar-hidden]="true" [drag-scroll-x-disabled]="true" class="cartContents mt-3">
 			<div class="ticket" *ngFor="let ticket of cart; trackBy: trackTicket">
-				<div class="info">
-					<div class="type">
-						{{ '#ticketScreen-options-type' | translate }}:
-						{{ (ticket.reduced ? '#ticketScreen-reduced' : '#ticketScreen-normal') | translate }}
-					</div>
-					<div class="for">{{ ticket.time | translate }}</div>
-					<div class="zone">{{ '#ticketScreen-options-zone' | translate }}: {{ ticket.zone }}</div>
-					<div class="price">{{ '#ticketScreen-cart-price' | translate }}: {{ ticket.price | number: '1.2-2' }} PLN</div>
+				<div class="ticketHeader" [style.background-color]="ticket.reduced ? 'var(--bg-ticket-reduced)' : 'var(--bg-ticket-normal)'">
+					<div>{{ '#ticketScreen-cart-cost' | translate }}:</div>
+					<div class="flex-grow-1"></div>
+					<div>{{ ticket.count }}x</div>
+					<div style="margin-left: 5px">{{ ticket.price | number: '1.2-2' }} PLN</div>
 				</div>
-				<button mat-raised-button (click)="removeFromCart(ticket)"><mat-icon color="warn">delete</mat-icon></button>
+				<div class="ticketBody">
+					<div class="info">
+						<div class="type">
+							{{ '#ticketScreen-options-type' | translate }}:
+							{{ (ticket.reduced ? '#ticketScreen-reduced' : '#ticketScreen-normal') | translate }}
+						</div>
+						<div class="for">{{ ticket.time | translate }}</div>
+						<div class="zone">{{ '#ticketScreen-options-zone' | translate }}: {{ ticket.zone }}</div>
+					</div>
+					<button mat-raised-button (click)="removeFromCart(ticket)"><mat-icon color="warn">delete</mat-icon></button>
+				</div>
 			</div>
 		</drag-scroll>
 	</div>

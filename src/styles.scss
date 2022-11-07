@@ -11,3 +11,8 @@ body {
 .fullHeight {
 	height: calc(100% - 50px);
 }
+
+:root {
+  --bg-ticket-normal: #2196F3;
+  --bg-ticket-reduced: #4CAF50;
+}

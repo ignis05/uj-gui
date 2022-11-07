@@ -24,7 +24,7 @@
 	"#ticketScreen-reduced": "Reduced",
 	"#ticketScreen-normal": "Normal",
 	"#ticketScreen-cart-total": "Total",
-	"#ticketScreen-cart-price": "Price",
+	"#ticketScreen-cart-cost": "Cost",
 	"#ticketScreen-cart-purchase": "Purchase",
 	"#ticketScreen-cart-clearCart": "Clear Cart",
 	"#ticketScreen-options-info": "Ticket information",

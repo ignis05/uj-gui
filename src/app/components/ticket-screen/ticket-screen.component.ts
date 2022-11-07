@@ -6,7 +6,7 @@ import { NavigateBack } from 'src/app/interfaces/navigate-back'
 import { PaperTicket, possibleTickets, possibleTimes } from 'src/app/models/paper-ticket.model'
 
 interface TicketInCart extends PaperTicket {
-	id: string
+	count: number
 }
 
 @Component({
@@ -41,7 +41,7 @@ export class TicketScreenComponent implements OnInit, NavigateBack {
 	}
 
 	get totalPrice() {
-		return this.cart.reduce((r, t) => r + t.price, 0)
+		return this.cart.reduce((r, t) => r + t.price * t.count, 0)
 	}
 
 	confirmPurchase() {
@@ -70,18 +70,20 @@ export class TicketScreenComponent implements OnInit, NavigateBack {
 	}
 
 	addToCard(ticket: PaperTicket) {
-		for (let i = 0; i < this.ticketOptions.amount; i++) {
-			this.cart.push({ ...ticket, id: (Date.now() + Math.random()).toString(32) })
-		}
+		let existingTicket = this.cart.find((t) => t.time == ticket.time && t.reduced == ticket.reduced && t.zone == ticket.zone)
+		if (!existingTicket) this.cart.push({ count: this.ticketOptions.amount, ...ticket })
+		else existingTicket.count += this.ticketOptions.amount
 	}
 
-	removeFromCart(ticket: PaperTicket) {
+	removeFromCart(ticket: TicketInCart) {
 		let i = this.cart.findIndex((t) => t == ticket)
 		if (i == -1) return console.error('ticket to delete not found in cart')
-		this.cart.splice(i, 1)
+
+		if (ticket.count > 1) ticket.count--
+		else this.cart.splice(i, 1)
 	}
 
 	trackTicket(i: number, ticket: TicketInCart) {
-		return ticket.id
+		return ticket.time + ticket.reduced ? 'r' : 'n' + ticket.zone
 	}
 }
