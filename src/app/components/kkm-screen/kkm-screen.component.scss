@@ -1,5 +1,5 @@
 .wrapper {
-	height: calc(100% - 50px);
+	height: var(--height-full-noHeader);
 	display: flex;
 	flex-direction: row;
 	justify-content: center;

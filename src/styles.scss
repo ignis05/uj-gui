@@ -8,11 +8,12 @@ body {
 	/* overflow: hidden; */
 }
 
-.fullHeight {
-	height: calc(100% - 50px);
+:root {
+	--height-full-noHeader: calc(100% - 50px);
+	--bg-ticket-normal: #2196f3;
+	--bg-ticket-reduced: #4caf50;
 }
 
-:root {
-  --bg-ticket-normal: #2196F3;
-  --bg-ticket-reduced: #4CAF50;
+.fullHeight {
+	height: var(--height-full-noHeader);
 }
