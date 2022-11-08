@@ -1,9 +1,9 @@
 {
 	"#valid-20min": "20-minute",
-	"#valid-40min": "40-minute",
-	"#valid-1h": "1-hour",
-	"#valid-2h": "2-hour",
-	"#valid-1d": "1-day",
+	"#valid-60min": "60-minute or 1 ride",
+	"#valid-90min": "90-minute",
+	"#valid-24h": "24-hour",
+	"#valid-48h": "48-hour",
 	"#valid-7d": "7-day",
 	"#mainScreen-tickets": "Tickets",
 	"#mainScreen-kkm": "KKM",

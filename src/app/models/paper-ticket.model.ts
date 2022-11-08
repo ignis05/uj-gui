@@ -1,6 +1,6 @@
 export interface PaperTicket {
 	reduced: boolean
-	time: '#valid-20min' | '#valid-40min' | '#valid-1h' | '#valid-2h' | '#valid-1d' | '#valid-7d'
+	time: '#valid-20min' | '#valid-60min' | '#valid-90min' | '#valid-24h' | '#valid-48h' | '#valid-7d'
 	zone: string
 	price: number
 }
@@ -9,44 +9,99 @@ export const possibleTickets: PaperTicket[] = [
 	{
 		reduced: false,
 		time: '#valid-20min',
-		zone: 'I',
-		price: 2.0,
-	},
-	{
-		reduced: true,
-		time: '#valid-20min',
-		zone: 'I',
-		price: 1.5,
-	},
-	{
-		reduced: false,
-		time: '#valid-40min',
-		zone: 'I',
-		price: 3.0,
-	},
-	{
-		reduced: false,
-		time: '#valid-1h',
-		zone: 'I',
+		zone: 'I + II + III',
 		price: 4.0,
 	},
 	{
 		reduced: false,
-		time: '#valid-2h',
-		zone: 'I',
-		price: 5.0,
+		time: '#valid-60min',
+		zone: 'I + II + III',
+		price: 6.0,
 	},
 	{
 		reduced: false,
-		time: '#valid-1d',
+		time: '#valid-90min',
+		zone: 'I + II + III',
+		price: 8.0,
+	},
+	{
+		reduced: false,
+		time: '#valid-24h',
 		zone: 'I',
-		price: 6.0,
+		price: 17.0,
+	},
+	{
+		reduced: false,
+		time: '#valid-24h',
+		zone: 'I + II + III',
+		price: 22.0,
+	},
+	{
+		reduced: false,
+		time: '#valid-48h',
+		zone: 'I + II + III',
+		price: 35.0,
 	},
 	{
 		reduced: false,
 		time: '#valid-7d',
 		zone: 'I',
-		price: 13.0,
+		price: 56.0,
+	},
+	{
+		reduced: false,
+		time: '#valid-7d',
+		zone: 'I + II + III',
+		price: 68.0,
+	},
+	// reduced:
+	{
+		reduced: true,
+		time: '#valid-20min',
+		zone: 'I + II + III',
+		price: 2.0,
+	},
+	{
+		reduced: true,
+		time: '#valid-60min',
+		zone: 'I + II + III',
+		price: 3.0,
+	},
+	{
+		reduced: true,
+		time: '#valid-90min',
+		zone: 'I + II + III',
+		price: 4.0,
+	},
+	{
+		reduced: true,
+		time: '#valid-24h',
+		zone: 'I',
+		price: 8.5,
+	},
+	{
+		reduced: true,
+		time: '#valid-24h',
+		zone: 'I + II + III',
+		price: 11.0,
+	},
+	{
+		reduced: true,
+		time: '#valid-48h',
+		zone: 'I + II + III',
+		price: 17.5,
+	},
+	{
+		reduced: true,
+		time: '#valid-7d',
+		zone: 'I',
+		price: 28.0,
+	},
+	{
+		reduced: true,
+		time: '#valid-7d',
+		zone: 'I + II + III',
+		price: 34.0,
 	},
 ]
 

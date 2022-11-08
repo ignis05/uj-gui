@@ -15,12 +15,12 @@ interface TicketInCart extends PaperTicket {
 	styleUrls: ['./ticket-screen.component.scss'],
 })
 export class TicketScreenComponent implements OnInit, NavigateBack {
-	visibleComponent: 'main' | 'payment' = 'main'
+	visibleComponent: 'main' | 'payment' | 'ticketInfo' = 'main'
 	childGoBackEEmitter = new EventEmitter<string>()
 	cart: TicketInCart[] = []
 	ticketOptions = {
 		reduced: false,
-		zone: 'I',
+		zone: 'I + II + III',
 		amount: 1,
 	}
 	possibleTickets = possibleTickets
@@ -44,12 +44,12 @@ export class TicketScreenComponent implements OnInit, NavigateBack {
 		return this.cart.reduce((r, t) => r + t.price * t.count, 0)
 	}
 
-	confirmPurchase() {
-		this.visibleComponent = 'payment'
-	}
-
 	clearCart() {
 		this.cart = []
+	}
+
+	navigate(comp: typeof this.visibleComponent) {
+		this.visibleComponent = comp
 	}
 
 	ngOnInit(): void {}
@@ -59,7 +59,7 @@ export class TicketScreenComponent implements OnInit, NavigateBack {
 	}
 
 	zoneToggle() {
-		const zones = ['I', 'I + II']
+		const zones = ['I', 'I + II + III']
 		let i = zones.indexOf(this.ticketOptions.zone)
 		if (i == -1) return console.error('invalid ticket zone')
 		this.ticketOptions.zone = zones[(i + 1) % zones.length]

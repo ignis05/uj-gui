@@ -6,7 +6,7 @@
 		</div>
 		<div class="buttons">
 			<button mat-raised-button (click)="clearCart()">{{ '#ticketScreen-cart-clearCart' | translate }}</button>
-			<button mat-raised-button color="primary" (click)="confirmPurchase()">{{ '#ticketScreen-cart-purchase' | translate }}</button>
+			<button mat-raised-button color="primary" (click)="navigate('payment')">{{ '#ticketScreen-cart-purchase' | translate }}</button>
 		</div>
 		<drag-scroll [scrollbar-hidden]="true" [drag-scroll-x-disabled]="true" class="cartContents mt-3">
 			<div class="ticket" *ngFor="let ticket of cart; trackBy: trackTicket">
@@ -53,7 +53,9 @@
 		</div>
 	</div>
 	<div class="ticketOptions sideColumn">
-		<button mat-raised-button class="mb-5">{{ '#ticketScreen-options-info' | translate }} <mat-icon>info</mat-icon></button>
+		<button mat-raised-button (click)="navigate('ticketInfo')" class="mb-5">
+			{{ '#ticketScreen-options-info' | translate }} <mat-icon>info</mat-icon>
+		</button>
 		<button mat-raised-button (click)="typeToggle()">
 			{{ '#ticketScreen-options-type' | translate }}:
 			{{ (ticketOptions.reduced ? '#ticketScreen-reduced' : '#ticketScreen-normal') | translate }}
@@ -67,6 +69,17 @@
 			</div>
 		</div>
 	</div>
+</div>
+
+<div *ngIf="visibleComponent == 'ticketInfo'" class="ticketInfo" (click)="navigate('main')">
+	<h1 class="header">{{ '#ticketScreen-info-title' | translate }}</h1>
+	<ul>
+		<li>Type:</li>
+		<ul>
+			<li>Normal - normal ticket</li>
+			<li>Reduced - ticket with reduced price, requires</li>
+		</ul>
+	</ul>
 </div>
 
 <app-payment-handler [toPay]="totalPrice" [goBackEvent]="childGoBackEEmitter" *ngIf="visibleComponent == 'payment'"></app-payment-handler>

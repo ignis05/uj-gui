@@ -130,3 +130,8 @@ app-ticket-button {
 	height: calc(100% - 140px);
 	user-select: none;
 }
+
+.ticketInfo {
+	width: 100%;
+	height: var(--height-full-noHeader);
+}
