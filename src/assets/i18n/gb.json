@@ -33,6 +33,8 @@
 	"#ticketScreen-options-type": "Type",
 	"#ticketScreen-options-zone": "Zone",
 	"#ticketScreen-options-amount": "Amount",
+	"#ticketScreen-info-zones": "Existing ticket zones in Cracow",
+	"#ticketScreen-info-zones2": "Note: Some tickets are only available in I+II+III zone variant",
 	"#paymentHandler-cash": "Cash",
 	"#paymentHandler-card": "Credit Card",
 	"#paymentHandler-blik": "Blik",

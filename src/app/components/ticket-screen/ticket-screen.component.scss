@@ -134,4 +134,14 @@ app-ticket-button {
 .ticketInfo {
 	width: 100%;
 	height: var(--height-full-noHeader);
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: space-between;
+	padding: 5px 50px;
+}
+
+.ticketInfo img {
+	width: auto;
+	height: calc(100% - 10px);
 }

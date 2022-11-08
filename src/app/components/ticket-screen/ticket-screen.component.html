@@ -72,14 +72,11 @@
 </div>
 
 <div *ngIf="visibleComponent == 'ticketInfo'" class="ticketInfo" (click)="navigate('main')">
-	<h1 class="header">{{ '#ticketScreen-info-title' | translate }}</h1>
-	<ul>
-		<li>Type:</li>
-		<ul>
-			<li>Normal - normal ticket</li>
-			<li>Reduced - ticket with reduced price, requires</li>
-		</ul>
-	</ul>
+	<div class="infoBlock">
+		<h1 class="header">{{ '#ticketScreen-info-zones' | translate }}</h1>
+		<div>{{ '#ticketScreen-info-zones2' | translate }}</div>
+	</div>
+	<img src="./assets/gfx/zones.png" />
 </div>
 
 <app-payment-handler [toPay]="totalPrice" [goBackEvent]="childGoBackEEmitter" *ngIf="visibleComponent == 'payment'"></app-payment-handler>
