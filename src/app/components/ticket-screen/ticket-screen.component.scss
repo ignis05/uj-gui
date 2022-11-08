@@ -28,6 +28,10 @@ $btnMargin: 5px;
 	border: 1px solid black;
 }
 
+.ticketOptions > button mat-icon {
+	transform: translateY(-3px);
+}
+
 .ticketOptions .amountSelect {
 	margin: $btnMargin;
 	width: calc(100% - $btnMargin - $btnMargin);
@@ -53,7 +57,7 @@ $btnMargin: 5px;
 
 .ticketSelect {
 	flex-grow: 1;
-	padding-top: 100px;
+	padding-top: 20px;
 }
 
 app-ticket-button {
@@ -64,6 +68,7 @@ app-ticket-button {
 }
 
 .shoppingCart {
+	width: 350px;
 	padding: 5px;
 	padding-top: 0px;
 }
@@ -88,7 +93,6 @@ app-ticket-button {
 
 .shoppingCart .buttons > button {
 	height: 80px;
-	width: 50%;
 	border: 1px solid black;
 }
 
@@ -96,9 +100,24 @@ app-ticket-button {
 	margin-left: 5px;
 }
 
+.shoppingCart .buttons .clearBt {
+	width: 80px;
+	padding: 0px 0px;
+}
+
+.shoppingCart .buttons .clearBt mat-icon {
+	transform: scale(2);
+}
+
+.shoppingCart .buttons .confirmBt {
+	flex-grow: 1;
+	font-size: 1.5em;
+}
+
 .shoppingCart .ticket {
 	border: 1px solid black;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
+	font-size: 1.5em;
 }
 
 .shoppingCart .ticketHeader {
@@ -116,12 +135,12 @@ app-ticket-button {
 	align-items: center;
 	justify-content: space-between;
 	padding-left: 5px;
-	height: 80px;
+	height: 100px;
 }
 
 .shoppingCart .ticketBody button {
 	height: 100%;
-	width: 70px;
+	width: 120px;
 	margin-left: 10px;
 	border-left: 1px solid black;
 }

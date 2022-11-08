@@ -5,8 +5,10 @@
 			<div>{{ (totalPrice | number: '1.2-2') + ' PLN' }}</div>
 		</div>
 		<div class="buttons">
-			<button mat-raised-button (click)="clearCart()">{{ '#ticketScreen-cart-clearCart' | translate }}</button>
-			<button mat-raised-button color="primary" (click)="navigate('payment')">{{ '#ticketScreen-cart-purchase' | translate }}</button>
+			<button class="clearBt" mat-raised-button (click)="clearCart()"><mat-icon>remove_shopping_cart</mat-icon></button>
+			<button class="confirmBt" mat-raised-button color="primary" (click)="navigate('payment')">
+				{{ '#ticketScreen-cart-purchase' | translate }}
+			</button>
 		</div>
 		<drag-scroll [scrollbar-hidden]="true" [drag-scroll-x-disabled]="true" class="cartContents mt-3">
 			<div class="ticket" *ngFor="let ticket of cart; trackBy: trackTicket">
@@ -19,7 +21,6 @@
 				<div class="ticketBody">
 					<div class="info">
 						<div class="type">
-							{{ '#ticketScreen-options-type' | translate }}:
 							{{ (ticket.reduced ? '#ticketScreen-reduced' : '#ticketScreen-normal') | translate }}
 						</div>
 						<div class="for">{{ ticket.time | translate }}</div>
@@ -61,7 +62,7 @@
 			{{ (ticketOptions.reduced ? '#ticketScreen-reduced' : '#ticketScreen-normal') | translate }}
 		</button>
 		<button mat-raised-button (click)="zoneToggle()">{{ '#ticketScreen-options-zone' | translate }}: {{ ticketOptions.zone }}</button>
-		<div class="amountSelect rounded">
+		<div class="amountSelect rounded mt-5">
 			<div class="mb-1">{{ '#ticketScreen-options-amount' | translate }}: {{ ticketOptions.amount }}</div>
 			<div class="amountSelectButtons">
 				<button mat-flat-button (click)="setAmount(-1)">-</button>
