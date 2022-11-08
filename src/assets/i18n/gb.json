@@ -14,6 +14,8 @@
 	"#kkmScreen-checkActive": "Check active tickets",
 	"#kkmScreen-purchase": "Purchase ticket",
 	"#kkmScreen-activate": "Activate ticket",
+	"#activeTicketList-active": "Active",
+	"#activeTicketList-expired": "Expired",
 	"#activeTicketList-activeTickets": "Active tickets",
 	"#activeTicketList-activeSince": "Active Since:",
 	"#activeTicketList-activeUntil": "Active Until:",

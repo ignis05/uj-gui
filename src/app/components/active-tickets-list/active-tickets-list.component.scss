@@ -3,12 +3,25 @@ h3 {
 	margin-top: 10px;
 }
 
-.ticket {
-	margin: 5px 10px;
-	width: 200px;
-}
-
 .ticketListWrapper {
 	display: flex;
 	flex-flow: row wrap;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.ticket {
+	margin: 25px 10px;
+	width: 400px;
+	border: 1px solid black;
+	font-size: 1.5em;
+}
+
+.ticket .header {
+	font-weight: bold;
+	text-align: center;
+}
+
+.ticket .body {
+	padding: 5px;
 }
