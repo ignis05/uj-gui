@@ -47,5 +47,10 @@
 	"#paymentHandler-cardDeclined2": "Press anywhere to try again.",
 	"#paymentHandler-enterBlikCode": "Enter blik code:",
 	"#paymentHandler-confirmBlikPayment": "Now confirm the payment on your phone.",
-	"LanguageName": "English"
+	"#paymentHandler-toPay": "Cost",
+	"#paymentHandler-paid": "Paid",
+	"#paymentHandler-leftToPay": "Left to pay",
+	"#paymentHandler-returnMoney": "Cancel and return money",
+	"#paymentHandler-confirm": "Confirm",
+	"#LanguageName": "English"
 }

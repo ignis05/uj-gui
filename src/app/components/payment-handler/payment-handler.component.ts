@@ -15,6 +15,7 @@ export class PaymentHandlerComponent implements OnInit, OnDestroy {
 	cardPaymentResult: 'accepted' | 'declined' | undefined
 	blikInput = new FormControl('')
 	blikPaymentStatus: 'code' | 'waiting' | 'confirmation' = 'code'
+	paid: number = 0
 
 	constructor(private router: Router) {
 		this.mockupInteractionHandler = this.mockupInteractionHandler.bind(this)
@@ -40,9 +41,12 @@ export class PaymentHandlerComponent implements OnInit, OnDestroy {
 	mockupInteractionHandler(e: KeyboardEvent) {
 		console.log(e.code)
 		if (this.chosenPaymentMethod == 'card') {
-			console.log('card')
 			if (e.code == 'KeyA') this.cardPaymentResult = 'accepted'
 			else if (e.code == 'KeyD') this.cardPaymentResult = 'declined'
+		} else if (this.chosenPaymentMethod == 'cash') {
+			if (e.code == 'Digit1') this.paid += 1
+			if (e.code == 'Digit2') this.paid += 2
+			else if (e.code == 'Digit5') this.paid += 5
 		}
 	}
 
@@ -64,5 +68,9 @@ export class PaymentHandlerComponent implements OnInit, OnDestroy {
 
 	blikProcessNavigation(dest: typeof this.blikPaymentStatus) {
 		this.blikPaymentStatus = dest
+	}
+
+	cancelCashPayment() {
+		this.paid = 0
 	}
 }

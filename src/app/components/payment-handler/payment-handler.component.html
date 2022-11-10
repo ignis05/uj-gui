@@ -18,7 +18,17 @@
 		<mat-icon fill="0" fontIcon="password"></mat-icon>
 	</button>
 </div>
-<div *ngIf="chosenPaymentMethod == 'cash'">cash</div>
+<div *ngIf="chosenPaymentMethod == 'cash'" class="fullHeight cashPayment">
+	<div class="header">
+		<div>{{ '#paymentHandler-toPay' | translate }}: {{ toPay | number: '1.2-2' }}</div>
+		<div>{{ '#paymentHandler-paid' | translate }}: {{ paid | number: '1.2-2' }} PLN</div>
+		<div>{{ '#paymentHandler-leftToPay' | translate }}: {{ toPay - paid | number: '1.2-2' }} PLN</div>
+	</div>
+	<div class="body">
+		<button mat-raised-button (click)="cancelCashPayment()">{{ '#paymentHandler-returnMoney' | translate }}</button>
+		<button  color="primary" mat-raised-button [disabled]="toPay > paid">{{ '#paymentHandler-confirm' | translate }}</button>
+	</div>
+</div>
 <div *ngIf="chosenPaymentMethod == 'card'" class="infoText fullHeight" (click)="cardPaymentCompleteHandler()">
 	<h1 *ngIf="!cardPaymentResult">{{ '#paymentHandler-cardInstructions' | translate }}</h1>
 	<h1 *ngIf="cardPaymentResult == 'accepted'">{{ '#paymentHandler-cardAccepted1' | translate }}</h1>

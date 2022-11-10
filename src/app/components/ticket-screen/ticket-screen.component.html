@@ -6,7 +6,7 @@
 		</div>
 		<div class="buttons">
 			<button class="clearBt" mat-raised-button (click)="clearCart()"><mat-icon>remove_shopping_cart</mat-icon></button>
-			<button class="confirmBt" mat-raised-button color="primary" (click)="navigate('payment')">
+			<button class="confirmBt" mat-raised-button color="primary" (click)="navigate('payment')" [disabled]="totalPrice <= 0">
 				{{ '#ticketScreen-cart-purchase' | translate }}
 			</button>
 		</div>
