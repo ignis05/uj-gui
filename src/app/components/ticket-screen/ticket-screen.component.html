@@ -80,4 +80,9 @@
 	<img src="./assets/gfx/zones.png" />
 </div>
 
-<app-payment-handler [toPay]="totalPrice" [goBackEvent]="childGoBackEEmitter" *ngIf="visibleComponent == 'payment'"></app-payment-handler>
+<app-payment-handler
+	[toPay]="totalPrice"
+	[goBackEvent]="childGoBackEEmitter"
+	[successMsg]="'#paymentHandler-successTicket' | translate"
+	*ngIf="visibleComponent == 'payment'"
+></app-payment-handler>

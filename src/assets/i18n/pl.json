@@ -1,4 +1,5 @@
 {
 	"#mainScreen-tickets": "Bilety",
+	"#paymentHandler-successTicket": "Płatność zaakceptowana - trwa wydruk biletów",
 	"LanguageName": "Polski"
 }

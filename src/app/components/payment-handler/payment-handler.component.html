@@ -18,7 +18,7 @@
 		<mat-icon fill="0" fontIcon="password"></mat-icon>
 	</button>
 </div>
-<div *ngIf="chosenPaymentMethod == 'cash'" class="fullHeight cashPayment">
+<div *ngIf="chosenPaymentMethod == 'cash' && cashPaymentStatus == 'inProgress'" class="fullHeight cashPayment">
 	<div class="header">
 		<div>{{ '#paymentHandler-toPay' | translate }}: {{ toPay | number: '1.2-2' }}</div>
 		<div>{{ '#paymentHandler-paid' | translate }}: {{ paid | number: '1.2-2' }} PLN</div>
@@ -26,15 +26,25 @@
 	</div>
 	<div class="body">
 		<button mat-raised-button (click)="cancelCashPayment()">{{ '#paymentHandler-returnMoney' | translate }}</button>
-		<button  color="primary" mat-raised-button [disabled]="toPay > paid">{{ '#paymentHandler-confirm' | translate }}</button>
+		<button mat-raised-button (click)="confirmCashPayment()" color="primary" [disabled]="toPay > paid">
+			{{ '#paymentHandler-confirm' | translate }}
+		</button>
 	</div>
+</div>
+<div
+	*ngIf="chosenPaymentMethod == 'cash' && cashPaymentStatus == 'complete'"
+	class="infoText fullHeight"
+	(click)="cashPaymentCompleteHandler()"
+>
+	<h1>{{ successMsg }}</h1>
+	<h1>{{ '#paymentHandler-pressToExit' | translate }}</h1>
 </div>
 <div *ngIf="chosenPaymentMethod == 'card'" class="infoText fullHeight" (click)="cardPaymentCompleteHandler()">
 	<h1 *ngIf="!cardPaymentResult">{{ '#paymentHandler-cardInstructions' | translate }}</h1>
-	<h1 *ngIf="cardPaymentResult == 'accepted'">{{ '#paymentHandler-cardAccepted1' | translate }}</h1>
-	<h1 *ngIf="cardPaymentResult == 'accepted'">{{ '#paymentHandler-cardAccepted2' | translate }}</h1>
+	<h1 *ngIf="cardPaymentResult == 'accepted'">{{ successMsg }}</h1>
+	<h1 *ngIf="cardPaymentResult == 'accepted'">{{ '#paymentHandler-pressToExit' | translate }}</h1>
 	<h1 *ngIf="cardPaymentResult == 'declined'">{{ '#paymentHandler-cardDeclined1' | translate }}</h1>
-	<h1 *ngIf="cardPaymentResult == 'declined'">{{ '#paymentHandler-cardDeclined2' | translate }}</h1>
+	<h1 *ngIf="cardPaymentResult == 'declined'">{{ '#paymentHandler-pressToRetry' | translate }}</h1>
 </div>
 <div *ngIf="chosenPaymentMethod == 'blik'" class="fullHeight d-flex justify-content-center align-items-center">
 	<div *ngIf="blikPaymentStatus == 'code'" class="d-flex flex-column keypadWrapper">

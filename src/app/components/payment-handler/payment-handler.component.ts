@@ -10,12 +10,14 @@ import { Router } from '@angular/router'
 export class PaymentHandlerComponent implements OnInit, OnDestroy {
 	@Input() toPay: number = 0
 	@Input() goBackEvent: EventEmitter<string> = new EventEmitter()
+	@Input() successMsg: string = ''
 	chosenPaymentMethod: 'cash' | 'card' | 'blik' | undefined
 	eventSubscription: any
 	cardPaymentResult: 'accepted' | 'declined' | undefined
 	blikInput = new FormControl('')
 	blikPaymentStatus: 'code' | 'waiting' | 'confirmation' = 'code'
 	paid: number = 0
+	cashPaymentStatus: 'inProgress' | 'complete' = 'inProgress'
 
 	constructor(private router: Router) {
 		this.mockupInteractionHandler = this.mockupInteractionHandler.bind(this)
@@ -70,7 +72,15 @@ export class PaymentHandlerComponent implements OnInit, OnDestroy {
 		this.blikPaymentStatus = dest
 	}
 
+	confirmCashPayment() {
+		this.cashPaymentStatus = 'complete'
+	}
+
 	cancelCashPayment() {
 		this.paid = 0
+	}
+
+	cashPaymentCompleteHandler() {
+		this.router.navigateByUrl('/')
 	}
 }
