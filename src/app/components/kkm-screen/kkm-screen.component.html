@@ -13,7 +13,7 @@
 		</span>
 		<mat-icon fill="0" fontIcon="checklist"></mat-icon>
 	</button>
-	<button mat-raised-button class="navButton" (click)="KkmSelectHandler('2')">
+	<button mat-raised-button class="navButton" (click)="KkmSelectHandler('purchaseTicket')">
 		<span>
 			{{ '#kkmScreen-purchase' | translate }}
 		</span>
@@ -32,3 +32,4 @@
 	[isTicketAvailable]="isOnlineTicketReady"
 	[goBackFunc]="goBack"
 ></app-ticket-activation>
+<app-kkm-ticket-screen *ngIf="activeSubComponent === 'purchaseTicket'"> </app-kkm-ticket-screen>

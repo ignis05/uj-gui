@@ -22,7 +22,8 @@ import { KeybindExplainerComponent } from './components/keybind-explainer/keybin
 import { PaymentHandlerComponent } from './components/payment-handler/payment-handler.component'
 import { ReactiveFormsModule } from '@angular/forms';
 import { KeypadComponent } from './components/keypad/keypad.component';
-import { TicketButtonComponent } from './components/ticket-button/ticket-button.component'
+import { TicketButtonComponent } from './components/ticket-button/ticket-button.component';
+import { KkmTicketScreenComponent } from './components/kkm-ticket-screen/kkm-ticket-screen.component'
 
 @NgModule({
 	declarations: [
@@ -36,6 +37,7 @@ import { TicketButtonComponent } from './components/ticket-button/ticket-button.
 		PaymentHandlerComponent,
   KeypadComponent,
   TicketButtonComponent,
+  KkmTicketScreenComponent,
 	],
 	imports: [
 		BrowserModule,
