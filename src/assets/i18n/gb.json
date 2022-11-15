@@ -54,5 +54,12 @@
 	"#paymentHandler-leftToPay": "Left to pay",
 	"#paymentHandler-returnMoney": "Cancel and return money",
 	"#paymentHandler-confirm": "Confirm",
+	"#kkmTicketScreen-zones": "Ticket zones:",
+	"#kkmTicketScreen-purchase": "Purchase",
+	"#kkmTicketScreen-network": "Network ticket",
+	"#kkmTicketScreen-singleLine": "Single line ticket",
+	"#kkmTicketScreen-startDate": "Validity period start",
+	"#kkmTicketScreen-lineInput": "Line number",
+	"#kkmTicketScreen-zone": "Zone",
 	"#LanguageName": "English"
 }

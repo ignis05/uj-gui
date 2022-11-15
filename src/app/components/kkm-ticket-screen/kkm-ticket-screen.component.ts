@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit } from '@angular/core'
 import { FormControl } from '@angular/forms'
+import { NgbDate } from '@ng-bootstrap/ng-bootstrap'
 import { TranslateService } from '@ngx-translate/core'
 
 @Component({
@@ -27,8 +28,21 @@ export class KkmTicketScreenComponent implements OnInit, OnDestroy {
 		},
 	}
 	lineInput = new FormControl('')
+	today: NgbDate
 
-	constructor(public translate: TranslateService) {}
+	constructor(public translate: TranslateService) {
+		let curr = new Date()
+		this.today = new NgbDate(curr.getFullYear(), curr.getMonth() + 1, curr.getDate())
+		console.log(this.today)
+	}
+
+	purchase() {
+		this.purchaseStatus = 'payment'
+	}
+
+	get ticketPrice(): number {
+		return 80
+	}
 
 	// go back functionality
 	ngOnInit(): void {
@@ -82,5 +96,13 @@ export class KkmTicketScreenComponent implements OnInit, OnDestroy {
 			this.lineInput.setValue(value)
 		}
 		this.ticketOptions.line = this.lineInput.value!
+	}
+
+	// date select
+	onDateSelect(event: NgbDate) {
+		console.log(event)
+	}
+	isDisabled = (date: NgbDate, current: any) => {
+		return date.before(this.today)
 	}
 }
