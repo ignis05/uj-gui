@@ -1,10 +1,10 @@
 <div *ngIf="!showSuccessMsg && isTicketAvailable" class="wrapper fullPage">
-	<h1>{{ '#ticketActivation-ticketReady' | translate }}</h1>
+	<h1>{{ '#ticketActivation-ticketReady' | translate }}:</h1>
 	<div class="ticket">
 		<div>{{ '#activeTicketList-activeSince' | translate }} {{ ticket.activeSince }}</div>
 		<div>{{ '#activeTicketList-activeUntil' | translate }} {{ ticket.activeUntil }}</div>
 		<div>
-			{{ '#activeTicketList-lines' | translate }}
+			{{ '#activeTicketList-lines' | translate }}:
 			{{ (ticket.busLine == 'all' ? '#activeTicketList-allLines' : ticket.busLine) | translate }}
 		</div>
 	</div>

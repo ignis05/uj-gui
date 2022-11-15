@@ -31,7 +31,7 @@
 			<app-keypad class="keyPad mt-3" (valueOutput)="lineKeypadHandler($event)" [maxLength]="3" buttonHeight="120px"></app-keypad>
 		</div>
 		<div *ngIf="!ticketOptions.singleLine" class="bdColumn zoneSelector">
-			<div class="h2">{{ '#kkmTicketScreen-zones' | translate }}</div>
+			<div class="h2">{{ '#kkmTicketScreen-zones' | translate }}:</div>
 			<div class="zoneButtons">
 				<button
 					mat-raised-button
