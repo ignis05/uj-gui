@@ -20,9 +20,9 @@
 </div>
 <div *ngIf="chosenPaymentMethod == 'cash' && cashPaymentStatus == 'inProgress'" class="fullHeight cashPayment">
 	<div class="header">
-		<div>{{ '#paymentHandler-toPay' | translate }}: {{ toPay | number: '1.2-2' }}</div>
+		<div>{{ '#paymentHandler-toPay' | translate }}: {{ toPay | number: '1.2-2' }} PLN</div>
 		<div>{{ '#paymentHandler-paid' | translate }}: {{ paid | number: '1.2-2' }} PLN</div>
-		<div>{{ '#paymentHandler-leftToPay' | translate }}: {{ toPay - paid | number: '1.2-2' }} PLN</div>
+		<div>{{ '#paymentHandler-leftToPay' | translate }}: {{ leftToPay | number: '1.2-2' }} PLN</div>
 	</div>
 	<div class="body">
 		<button mat-raised-button (click)="cancelCashPayment()">{{ '#paymentHandler-returnMoney' | translate }}</button>

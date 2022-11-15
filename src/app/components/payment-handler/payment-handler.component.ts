@@ -23,6 +23,10 @@ export class PaymentHandlerComponent implements OnInit, OnDestroy {
 		this.mockupInteractionHandler = this.mockupInteractionHandler.bind(this)
 	}
 
+	get leftToPay() {
+		return Math.max(0, this.toPay - this.paid)
+	}
+
 	goBackFunc() {
 		if (!this.chosenPaymentMethod) this.goBackEvent.emit('toParent')
 		else if (this.chosenPaymentMethod) this.chosenPaymentMethod = undefined
@@ -46,9 +50,32 @@ export class PaymentHandlerComponent implements OnInit, OnDestroy {
 			if (e.code == 'KeyA') this.cardPaymentResult = 'accepted'
 			else if (e.code == 'KeyD') this.cardPaymentResult = 'declined'
 		} else if (this.chosenPaymentMethod == 'cash') {
-			if (e.code == 'Digit1') this.paid += 1
-			if (e.code == 'Digit2') this.paid += 2
-			else if (e.code == 'Digit5') this.paid += 5
+			switch (e.code) {
+				case 'Digit1':
+					this.paid += 1
+					break
+				case 'Digit2':
+					this.paid += 2
+					break
+				case 'Digit5':
+					this.paid += 5
+					break
+				case 'KeyZ':
+					this.paid += 10
+					break
+				case 'KeyX':
+					this.paid += 20
+					break
+				case 'KeyC':
+					this.paid += 50
+					break
+				case 'KeyV':
+					this.paid += 100
+					break
+				case 'KeyB':
+					this.paid += 200
+					break
+			}
 		}
 	}
 
