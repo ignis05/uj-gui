@@ -11,7 +11,9 @@ import { KkmAvalTicket, KkmAvalTickets } from 'src/app/models/kkmAvailableTicket
 })
 export class KkmTicketScreenComponent implements OnInit, OnDestroy {
 	eventSubscription: any
+	eventSubscription2: any
 	@Input() goBackEvent: EventEmitter<string> = new EventEmitter<string>()
+	childEEmitter = new EventEmitter<string>()
 	purchaseStatus: 'purchase' | 'payment' = 'purchase'
 	ticketOptions = {
 		reduced: false,
@@ -59,6 +61,11 @@ export class KkmTicketScreenComponent implements OnInit, OnDestroy {
 
 	// go back functionality
 	ngOnInit(): void {
+		// payment subcomponent bounceback handle
+		this.eventSubscription2 = this.childEEmitter.subscribe((e) => {
+			if (e === 'toParent') this.purchaseStatus = 'purchase'
+		})
+		// event passed from parent
 		this.eventSubscription = this.goBackEvent.subscribe((e) => {
 			if (e === 'toChild') this.goBackFunc()
 		})
@@ -68,7 +75,7 @@ export class KkmTicketScreenComponent implements OnInit, OnDestroy {
 	}
 	goBackFunc() {
 		if (this.purchaseStatus == 'purchase') this.goBackEvent.emit('toParent')
-		else if (this.purchaseStatus == 'payment') this.purchaseStatus = 'purchase'
+		else if (this.purchaseStatus == 'payment') this.childEEmitter.emit('toChild')
 	}
 
 	// type toggles

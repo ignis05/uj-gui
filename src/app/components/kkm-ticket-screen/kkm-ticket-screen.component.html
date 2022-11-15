@@ -54,3 +54,9 @@
 		</div>
 	</div>
 </div>
+<app-payment-handler
+	[toPay]="ticketPrice"
+	[goBackEvent]="childEEmitter"
+	[successMsg]="'#paymentHandler-successTicket' | translate"
+	*ngIf="purchaseStatus == 'payment'"
+></app-payment-handler>

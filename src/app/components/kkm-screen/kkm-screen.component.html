@@ -32,4 +32,4 @@
 	[isTicketAvailable]="isOnlineTicketReady"
 	[goBackFunc]="goBack"
 ></app-ticket-activation>
-<app-kkm-ticket-screen *ngIf="activeSubComponent === 'purchaseTicket'"> </app-kkm-ticket-screen>
+<app-kkm-ticket-screen *ngIf="activeSubComponent === 'purchaseTicket'" [goBackEvent]="childEEmitter"> </app-kkm-ticket-screen>
