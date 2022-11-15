@@ -7,16 +7,28 @@
 		<button mat-raised-button (click)="typeToggle()">
 			{{ (ticketOptions.singleLine ? '#kkmTicketScreen-singleLine' : '#kkmTicketScreen-network') | translate }}
 		</button>
-		<div class="d-flex flex-grow-1"></div>
-		<button mat-raised-button color="primary" (click)="purchase()">
+		<div class="d-flex" style="flex: 1"></div>
+		<div
+			class="ticketPreview shadow"
+			[style.background-color]="ticketOptions.reduced ? 'var(--bg-ticket-reduced)' : 'var(--bg-ticket-normal)'"
+		>
+			<div>{{ (ticketOptions.reduced ? '#ticketScreen-reduced' : '#ticketScreen-normal') | translate }}</div>
+			<div *ngIf="ticketOptions.singleLine">{{ '#kkmTicketScreen-line' | translate }}: {{ ticketOptions.line || '-' }}</div>
+			<div *ngIf="!ticketOptions.singleLine">{{ '#kkmTicketScreen-zone' | translate }}: {{ ticketOptions.zone }}</div>
+			<div>{{ '#kkmTicketScreen-validity' | translate }}: {{ selectedDate | nbgDateFormat }} - {{ endDate | nbgDateFormat }}</div>
+		</div>
+		<div style="width: 50px"></div>
+		<button mat-raised-button color="primary" (click)="purchase()" [disabled]="!ticketOptions.isValid">
 			{{ '#kkmTicketScreen-purchase' | translate }} ({{ ticketPrice | number: '1.2-2' }} PLN)
 		</button>
 	</div>
 	<div class="body">
 		<div *ngIf="ticketOptions.singleLine" class="bdColumn line">
-			<label for="lineInput">{{ '#kkmTicketScreen-lineInput' | translate }}</label>
-			<input [readonly]="true" name="lineInput" [formControl]="lineInput" />
-			<app-keypad class="keyPad mt-3" (valueOutput)="lineKeypadHandler($event)" [maxLength]="3"></app-keypad>
+			<div class="lineHeader">
+				<label for="lineInput">{{ '#kkmTicketScreen-lineInput' | translate }}: </label>
+				<input [readonly]="true" name="lineInput" [formControl]="lineInput" />
+			</div>
+			<app-keypad class="keyPad mt-3" (valueOutput)="lineKeypadHandler($event)" [maxLength]="3" buttonHeight="120px"></app-keypad>
 		</div>
 		<div *ngIf="!ticketOptions.singleLine" class="bdColumn zoneSelector">
 			<div class="h2">{{ '#kkmTicketScreen-zones' | translate }}</div>
@@ -25,7 +37,7 @@
 					mat-raised-button
 					*ngFor="let z of ['I', 'II', 'III']; index as i"
 					(click)="zoneToggle(i + 1)"
-					[style.background-color]="isZoneActive(i + 1) ? 'var(--bg-ticket-reduced)' : 'var(--bg-ticket-normal)'"
+					[style.background-color]="isZoneActive(i + 1) ? 'var(--bs-teal)' : 'var(--bs-white)'"
 				>
 					{{ '#kkmTicketScreen-zone' | translate }} : {{ z }}
 				</button>

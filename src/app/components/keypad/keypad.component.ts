@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 })
 export class KeypadComponent implements OnInit {
 	@Input() maxLength: number = 6
+	@Input() buttonHeight: string = '150px'
 	value: string = ''
 	@Output() valueOutput = new EventEmitter<string>()
 

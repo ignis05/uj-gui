@@ -1,4 +1,4 @@
-$header-height: 100px;
+$header-height: 120px;
 .header {
 	height: $header-height;
 	border-bottom: 1px solid black;
@@ -25,7 +25,7 @@ $header-height: 100px;
 }
 
 .bdColumn {
-	flex-grow: 1;
+	width: 50%;
 	height: 100%;
 }
 
@@ -65,6 +65,9 @@ $header-height: 100px;
 	border: 1px solid grey;
 	border-radius: 5px;
 }
+.dateSelector ::ng-deep ngb-datepicker .ngb-dp-navigation-chevron {
+	font-size: 2em;
+}
 
 .zoneButtons {
 	width: 100%;
@@ -79,4 +82,32 @@ $header-height: 100px;
 	flex-grow: 1;
 	margin: 0 5px;
 	font-size: 1.8em;
+}
+
+.line {
+	padding-left: 5px;
+}
+
+.line app-keypad {
+	width: 80%;
+}
+
+.line .lineHeader > input,
+.line .lineHeader > label {
+	font-size: 2em;
+	margin-bottom: 20px;
+}
+
+.line .lineHeader {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.ticketPreview {
+	height: calc(100% - 10px);
+	padding: 5px;
+	font-size: 1.2em;
+	border: 1px solid black;
 }

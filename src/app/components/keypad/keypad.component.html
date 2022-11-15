@@ -1,16 +1,22 @@
-<div class="container">
+<div class="container keypad">
 	<div class="row">
-		<button (click)="keyClickHandler(i)" class="col" *ngFor="let i of [1, 2, 3]">{{ i }}</button>
+		<button mat-flat-button (click)="keyClickHandler(i)" [style.height]="buttonHeight" class="col" *ngFor="let i of [1, 2, 3]">
+			{{ i }}
+		</button>
 	</div>
 	<div class="row">
-		<button (click)="keyClickHandler(i)" class="col" *ngFor="let i of [4, 5, 6]">{{ i }}</button>
+		<button mat-flat-button (click)="keyClickHandler(i)" [style.height]="buttonHeight" class="col" *ngFor="let i of [4, 5, 6]">
+			{{ i }}
+		</button>
 	</div>
 	<div class="row">
-		<button (click)="keyClickHandler(i)" class="col" *ngFor="let i of [7, 8, 9]">{{ i }}</button>
+		<button mat-flat-button (click)="keyClickHandler(i)" [style.height]="buttonHeight" class="col" *ngFor="let i of [7, 8, 9]">
+			{{ i }}
+		</button>
 	</div>
 	<div class="row">
-		<button (click)="keyClickHandler(-1)" class="col"><mat-icon>backspace</mat-icon></button>
-		<button (click)="keyClickHandler(0)" class="col">{{ 0 }}</button>
-		<button (click)="keyClickHandler(10)" class="col"><mat-icon>done</mat-icon></button>
+		<button mat-flat-button (click)="keyClickHandler(-1)" [style.height]="buttonHeight" class="col"><mat-icon>backspace</mat-icon></button>
+		<button mat-flat-button (click)="keyClickHandler(0)" [style.height]="buttonHeight" class="col">{{ 0 }}</button>
+		<button mat-flat-button (click)="keyClickHandler(10)" [style.height]="buttonHeight" class="col"><mat-icon>done</mat-icon></button>
 	</div>
 </div>

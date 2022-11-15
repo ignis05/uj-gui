@@ -61,5 +61,7 @@
 	"#kkmTicketScreen-startDate": "Validity period start",
 	"#kkmTicketScreen-lineInput": "Line number",
 	"#kkmTicketScreen-zone": "Zone",
+	"#kkmTicketScreen-validity": "Valid",
+	"#kkmTicketScreen-line": "Line",
 	"#LanguageName": "English"
 }

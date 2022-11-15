@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpClientModule } from '@angular/common/http'
 
-import { DragScrollModule } from 'ngx-drag-scroll';
+import { DragScrollModule } from 'ngx-drag-scroll'
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
@@ -20,10 +20,11 @@ import { ActiveTicketsListComponent } from './components/active-tickets-list/act
 import { TicketActivationComponent } from './components/ticket-activation/ticket-activation.component'
 import { KeybindExplainerComponent } from './components/keybind-explainer/keybind-explainer.component'
 import { PaymentHandlerComponent } from './components/payment-handler/payment-handler.component'
-import { ReactiveFormsModule } from '@angular/forms';
-import { KeypadComponent } from './components/keypad/keypad.component';
-import { TicketButtonComponent } from './components/ticket-button/ticket-button.component';
+import { ReactiveFormsModule } from '@angular/forms'
+import { KeypadComponent } from './components/keypad/keypad.component'
+import { TicketButtonComponent } from './components/ticket-button/ticket-button.component'
 import { KkmTicketScreenComponent } from './components/kkm-ticket-screen/kkm-ticket-screen.component'
+import { NbgDateFormatPipe } from './pipes/nbg-date-format.pipe'
 
 @NgModule({
 	declarations: [
@@ -35,9 +36,10 @@ import { KkmTicketScreenComponent } from './components/kkm-ticket-screen/kkm-tic
 		TicketActivationComponent,
 		KeybindExplainerComponent,
 		PaymentHandlerComponent,
-  KeypadComponent,
-  TicketButtonComponent,
-  KkmTicketScreenComponent,
+		KeypadComponent,
+		TicketButtonComponent,
+		KkmTicketScreenComponent,
+		NbgDateFormatPipe,
 	],
 	imports: [
 		BrowserModule,
@@ -49,7 +51,7 @@ import { KkmTicketScreenComponent } from './components/kkm-ticket-screen/kkm-tic
 		MatIconModule,
 		MatButtonModule,
 		ReactiveFormsModule,
-		DragScrollModule
+		DragScrollModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],

@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnDestroy, OnInit } from '@angular/core
 import { FormControl } from '@angular/forms'
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap'
 import { TranslateService } from '@ngx-translate/core'
+import { KkmAvalTicket, KkmAvalTickets } from 'src/app/models/kkmAvailableTicket.model'
 
 @Component({
 	selector: 'app-kkm-ticket-screen',
@@ -17,7 +18,7 @@ export class KkmTicketScreenComponent implements OnInit, OnDestroy {
 		zone1: true,
 		zone2: false,
 		zone3: false,
-		line: '000',
+		line: '',
 		singleLine: false,
 		get zone() {
 			let z = []
@@ -26,14 +27,19 @@ export class KkmTicketScreenComponent implements OnInit, OnDestroy {
 			if (this.zone3) z.push('III')
 			return z.join(' + ')
 		},
+		get isValid(): boolean {
+			if (this.singleLine && this.line.length < 3) return false
+			return true
+		},
 	}
 	lineInput = new FormControl('')
 	today: NgbDate
+	selectedDate: NgbDate
 
 	constructor(public translate: TranslateService) {
 		let curr = new Date()
 		this.today = new NgbDate(curr.getFullYear(), curr.getMonth() + 1, curr.getDate())
-		console.log(this.today)
+		this.selectedDate = this.today
 	}
 
 	purchase() {
@@ -41,7 +47,14 @@ export class KkmTicketScreenComponent implements OnInit, OnDestroy {
 	}
 
 	get ticketPrice(): number {
-		return 80
+		let range: string = this.ticketOptions.singleLine ? 'singleLine' : this.ticketOptions.zone
+		let t = KkmAvalTickets.find((el) => el.range == range && el.reduced == this.ticketOptions.reduced)
+		return t?.price || 0
+	}
+
+	get endDate(): NgbDate {
+		let { day, month, year } = this.selectedDate
+		return new NgbDate(year, month + 1, day)
 	}
 
 	// go back functionality
@@ -100,7 +113,7 @@ export class KkmTicketScreenComponent implements OnInit, OnDestroy {
 
 	// date select
 	onDateSelect(event: NgbDate) {
-		console.log(event)
+		this.selectedDate = event
 	}
 	isDisabled = (date: NgbDate, current: any) => {
 		return date.before(this.today)
