@@ -5,8 +5,8 @@
 			{{ (ticket.isActive ? '#activeTicketList-active' : '#activeTicketList-expired') | translate }}
 		</div>
 		<div class="body">
-			<div>{{ '#activeTicketList-activeSince' | translate }} {{ ticket.activeSince }}</div>
-			<div>{{ '#activeTicketList-activeUntil' | translate }} {{ ticket.activeUntil }}</div>
+			<div>{{ '#activeTicketList-activeSince' | translate }}: {{ ticket.activeSince }}</div>
+			<div>{{ '#activeTicketList-activeUntil' | translate }}: {{ ticket.activeUntil }}</div>
 			<div>
 				{{ '#activeTicketList-lines' | translate }}
 				{{ (ticket.busLine == 'all' ? '#activeTicketList-allLines' : ticket.busLine) | translate }}
