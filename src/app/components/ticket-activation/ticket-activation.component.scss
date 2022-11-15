@@ -1,4 +1,5 @@
 .wrapper {
+	padding-top: 50px;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -11,6 +12,15 @@
 
 .buttons {
 	margin-top: 20px;
+}
+
+.ticket {
+	font-size: 2em;
+}
+
+.buttons button {
+	font-size: 2em;
+	padding: 50px;
 }
 
 .buttons > *:not(:last-child) {

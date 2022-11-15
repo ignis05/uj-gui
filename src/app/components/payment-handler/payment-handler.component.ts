@@ -76,6 +76,8 @@ export class PaymentHandlerComponent implements OnInit, OnDestroy {
 					this.paid += 200
 					break
 			}
+		} else if (this.chosenPaymentMethod == 'blik') {
+			if (e.code === 'KeyC') this.blikPaymentStatus = 'confirmation'
 		}
 	}
 
@@ -109,5 +111,9 @@ export class PaymentHandlerComponent implements OnInit, OnDestroy {
 
 	cashPaymentCompleteHandler() {
 		this.router.navigateByUrl('/')
+	}
+
+	blikClosePayment() {
+		if (this.blikPaymentStatus == 'confirmation') this.router.navigateByUrl('/')
 	}
 }

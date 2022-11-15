@@ -46,16 +46,25 @@
 	<h1 *ngIf="cardPaymentResult == 'declined'">{{ '#paymentHandler-cardDeclined1' | translate }}</h1>
 	<h1 *ngIf="cardPaymentResult == 'declined'">{{ '#paymentHandler-pressToRetry' | translate }}</h1>
 </div>
-<div *ngIf="chosenPaymentMethod == 'blik'" class="fullHeight d-flex justify-content-center align-items-center">
+<div *ngIf="chosenPaymentMethod == 'blik'" class="fullHeight blikPayment" (click)="blikClosePayment()">
 	<div *ngIf="blikPaymentStatus == 'code'" class="d-flex flex-column keypadWrapper">
-		<label for="blikCode">{{ '#paymentHandler-enterBlikCode' | translate }}</label>
-		<input [readonly]="true" name="blikCode" [formControl]="blikInput" />
+		<div class="keypadHeader">
+			<label for="blikCode">{{ '#paymentHandler-enterBlikCode' | translate }}</label>
+			<input [readonly]="true" name="blikCode" [formControl]="blikInput" />
+		</div>
 		<app-keypad class="keyPad mt-3" (valueOutput)="blikKeypadHandler($event)"></app-keypad>
 	</div>
-	<div *ngIf="blikPaymentStatus == 'waiting'" class="d-flex flex-column">
+	<div *ngIf="blikPaymentStatus == 'waiting'" class="blikPaymentWaiting">
 		<h1>
 			{{ '#paymentHandler-confirmBlikPayment' | translate }}
 		</h1>
-		<button (click)="blikProcessNavigation('code')">{{ '#paymentHandler-cancel' | translate }}</button>
+		<img src="./assets/gfx/spinner.gif" />
+		<button class="cancelButton" mat-raised-button color="warn" (click)="blikProcessNavigation('code')">
+			{{ '#paymentHandler-cancel' | translate }}
+		</button>
+	</div>
+	<div *ngIf="blikPaymentStatus == 'confirmation'" class="blikPaymentWaiting infoText">
+		<h1>{{ successMsg }}</h1>
+		<h1>{{ '#paymentHandler-pressToExit' | translate }}</h1>
 	</div>
 </div>

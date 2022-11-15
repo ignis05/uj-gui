@@ -12,13 +12,13 @@ export class TicketActivationComponent implements OnInit {
 	@Input() goBackFunc: Function = () => {}
 	showSuccessMsg = false
 
-	ticket: KkmTicket = { activeSince: '10/11/2022', activeUntil: '10/12/2022', busLine: 'All', isActive: true }
+	ticket: KkmTicket = { activeSince: '10/11/2022', activeUntil: '10/12/2022', busLine: '129', isActive: true }
 
 	constructor(private router: Router) {}
 
 	ngOnInit(): void {}
 
-	activateTicket(){
+	activateTicket() {
 		this.showSuccessMsg = true
 	}
 

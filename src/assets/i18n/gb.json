@@ -42,7 +42,7 @@
 	"#paymentHandler-blik": "Blik",
 	"#paymentHandler-cardInstructions": "Proceed with the payment according to instructions displayed on the terminal.",
 	"#paymentHandler-successTicket": "Payment accepted - tickets are being printed.",
-	"#paymentHandler-successKKM": "Payment accepted - ticket was saved on kkm.",
+	"#paymentHandler-successKKM": "Payment accepted - ticket was saved on kkm. You can remove your card.",
 	"#paymentHandler-pressToExit": "Press anywhere to exit.",
 	"#paymentHandler-cardDeclined1": "Payment declined - see the terminal for details.",
 	"#paymentHandler-pressToRetry": "Press anywhere to try again.",
