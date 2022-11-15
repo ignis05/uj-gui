@@ -55,8 +55,13 @@ export class KkmTicketScreenComponent implements OnInit, OnDestroy {
 	}
 
 	get endDate(): NgbDate {
+		// transform to js date
 		let { day, month, year } = this.selectedDate
-		return new NgbDate(year, month + 1, day)
+		let d = new Date(year, month - 1, day)
+		// update month
+		d.setMonth(month)
+		// back to bootstrap date
+		return new NgbDate(d.getFullYear(), d.getMonth() + 1, d.getDate())
 	}
 
 	// go back functionality
