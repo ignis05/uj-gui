@@ -35,24 +35,36 @@ $btnMargin: 5px;
 .ticketOptions .amountSelect {
 	margin: $btnMargin;
 	width: calc(100% - $btnMargin - $btnMargin);
-	padding: 5px;
 	text-align: center;
 	font-size: 1.4em;
 	border: 1px solid black;
-}
-.ticketOptions .amountSelectButtons {
-	width: 100%;
+	margin-top: 50px;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
-	justify-content: space-evenly;
+	justify-content: center;
+	position: relative;
+	height: 100px;
 }
-.ticketOptions .amountSelectButtons > button {
-	flex-grow: 1;
-	height: 80px;
-	font-size: 1.5em;
-	border: 1px solid black;
-	border-radius: 0;
+.ticketOptions .amountSelect mat-icon {
+	transform: scale(2);
+}
+.ticketOptions .amountSelect button {
+	width: 100%;
+	height: 50%;
+}
+.ticketOptions .amountSelect .topBt {
+	padding-bottom: 10px;
+}
+.ticketOptions .amountSelect .botBt {
+	padding-top: 10px;
+}
+.ticketOptions .amountSelect .amountDisplay {
+	position: absolute;
+	top: 33%;
+	z-index: 50;
+	pointer-events: none;
+	user-select: none;
 }
 
 .ticketSelect {

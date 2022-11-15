@@ -62,12 +62,10 @@
 			{{ (ticketOptions.reduced ? '#ticketScreen-reduced' : '#ticketScreen-normal') | translate }}
 		</button>
 		<button mat-raised-button (click)="zoneToggle()">{{ '#ticketScreen-options-zone' | translate }}: {{ ticketOptions.zone }}</button>
-		<div class="amountSelect rounded mt-5">
-			<div class="mb-1">{{ '#ticketScreen-options-amount' | translate }}: {{ ticketOptions.amount }}</div>
-			<div class="amountSelectButtons">
-				<button mat-flat-button (click)="setAmount(-1)">-</button>
-				<button mat-flat-button (click)="setAmount(1)">+</button>
-			</div>
+		<div class="amountSelect rounded">
+			<button class="topBt" mat-flat-button (click)="setAmount(1)"><mat-icon>expand_less</mat-icon></button>
+			<div class="amountDisplay">{{ '#ticketScreen-options-amount' | translate }}: {{ ticketOptions.amount }}</div>
+			<button class="botBt" mat-flat-button (click)="setAmount(-1)"><mat-icon>expand_more</mat-icon></button>
 		</div>
 	</div>
 </div>
