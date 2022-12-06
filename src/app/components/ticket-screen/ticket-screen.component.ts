@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit } from '@angular/core'
+import { MatButtonToggleChange } from '@angular/material/button-toggle'
 import { Router } from '@angular/router'
 
 import { TranslateService } from '@ngx-translate/core'
@@ -54,8 +55,9 @@ export class TicketScreenComponent implements OnInit, NavigateBack {
 
 	ngOnInit(): void {}
 
-	typeToggle() {
-		this.ticketOptions.reduced = !this.ticketOptions.reduced
+	typeToggle(event: MatButtonToggleChange) {
+		console.log(event)
+		this.ticketOptions.reduced = event.value == 'reduced'
 	}
 
 	zoneToggle() {

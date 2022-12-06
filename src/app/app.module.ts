@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
+import { MatButtonToggleModule } from '@angular/material/button-toggle'
 
 import { AppComponent } from './app.component'
 import { AppRoutingModule } from './modules/app-routing.module'
@@ -50,6 +51,7 @@ import { NbgDateFormatPipe } from './pipes/nbg-date-format.pipe'
 		BrowserAnimationsModule,
 		MatIconModule,
 		MatButtonModule,
+		MatButtonToggleModule,
 		ReactiveFormsModule,
 		DragScrollModule,
 	],
