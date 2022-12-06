@@ -147,7 +147,16 @@ app-ticket-button {
 	align-items: center;
 	justify-content: space-between;
 	padding-left: 5px;
-	height: 100px;
+	height: 130px;
+}
+
+.shoppingCart .ticketBody .info {
+	width: 200px;
+	font-size: 0.9em;
+}
+
+.shoppingCart .ticketBody .for {
+	white-space: normal;
 }
 
 .shoppingCart .ticketBody button {
