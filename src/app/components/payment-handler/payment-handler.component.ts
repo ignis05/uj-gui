@@ -107,6 +107,7 @@ export class PaymentHandlerComponent implements OnInit, OnDestroy {
 
 	cancelCashPayment() {
 		this.paid = 0
+		this.chosenPaymentMethod = undefined
 	}
 
 	cashPaymentCompleteHandler() {
