@@ -13,10 +13,14 @@
 		<drag-scroll [scrollbar-hidden]="true" [drag-scroll-x-disabled]="true" class="cartContents mt-3">
 			<div class="ticket" *ngFor="let ticket of cart; trackBy: trackTicket">
 				<div class="ticketHeader" [style.background-color]="ticket.reduced ? 'var(--bg-ticket-reduced)' : 'var(--bg-ticket-normal)'">
-					<div>{{ '#ticketScreen-cart-cost' | translate }}:</div>
+					<div>
+						<span>{{ '#ticketScreen-options-amount' | translate }}: {{ ticket.count }}</span>
+					</div>
 					<div class="flex-grow-1"></div>
-					<div>{{ ticket.count }}x</div>
-					<div style="margin-left: 5px">{{ ticket.price | number : '1.2-2' }} PLN</div>
+					<div>
+						<span>{{ '#ticketScreen-cart-cost' | translate }}:</span>
+						<span style="margin-left: 5px">{{ ticket.price | number : '1.2-2' }} PLN</span>
+					</div>
 				</div>
 				<div class="ticketBody">
 					<div class="info">
